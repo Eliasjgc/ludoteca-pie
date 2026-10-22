@@ -10,7 +10,7 @@
     if (url.protocol !== 'https:' || url.username || url.password) return '';
     const base = propia.pathname.replace(/index\.html$/,'').replace(/\/?$/,'/');
     const mismoSitio = url.origin === propia.origin && [base,base+'index.html',base.slice(0,-1)].includes(url.pathname);
-    const apiPermitida = api && url.origin+url.pathname === new URL(api).origin+new URL(api).pathname;
+    let apiPermitida=false; try { const permitida=new URL(api); apiPermitida=url.origin+url.pathname===permitida.origin+permitida.pathname; } catch(error) {};
     if (!mismoSitio && !apiPermitida) return '';
     const id = (url.searchParams.get('id') || '').toUpperCase();
     return codigoValido(id) ? id : '';

@@ -4,7 +4,7 @@ const config=window.LUDOTECA_CONFIG || {};
 const {codigoValido,extraerCodigo,fichaValida,filtrarCatalogo}=LudotecaTools;
 const endpointValido=u=>/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u || '');
 let idActual='',generacion=0,instalacion,scanner,ultimoRechazado='',catalogo=[],catalogoCargado=false,cargaCatalogo=0,categoriaPendiente='',cargandoCatalogo=false;
-function estado(texto){ui('estado').textContent=texto}
+function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
 function limpiarVista(){ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
 function guardarUrl(params){const u=new URL(location.href);u.search=new URLSearchParams(params).toString();history.pushState(null,'',u)}
 function jsonp(params){
@@ -33,7 +33,7 @@ function mostrarFicha(g){
   ui('nota-prestados').textContent=Number.isInteger(g.prestados)?(g.prestados===0?'No hay ejemplares prestados.':'Los préstamos incluyen la custodia prolongada.')+((g.cantidadTotal-g.disponibilidad-g.prestados)>0?' Hay otros ejemplares no disponibles por su estado.':''):'Actualiza la conexión pública para consultar cuántos están prestados.';
   const fotoValida=/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(g.fotografia)&&g.fotografia.length<=1400000;
   ui('foto').hidden=!fotoValida;ui('sin-foto').hidden=fotoValida;
-  if(fotoValida){ui('foto').src=g.fotografia;ui('foto').alt='Fotografía de '+g.nombre}
+  if(fotoValida){ui('foto').onerror=()=>{ui('foto').hidden=true;ui('sin-foto').hidden=false};ui('foto').src=g.fotografia;ui('foto').alt='Fotografía de '+g.nombre}
   ui('ficha').hidden=false;
   ui('ficha').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 }
@@ -41,12 +41,12 @@ async function consultar(id){
   const turno=++generacion;limpiarVista();idActual=id;
   if(!codigoValido(id)){estado('Revisa el código de la etiqueta.');return}
   if(!navigator.onLine){estado('Sin conexión. Conéctate para consultar disponibilidad actual.');return}
-  estado('Consultando disponibilidad…');
+  mostrarReintento(false);estado('Consultando disponibilidad…');
   try{
     const g=await jsonp({api:'ficha',id,v:'23'});if(turno!==generacion)return;
     if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
     mostrarFicha(g);estado('Consulta realizada a las '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'.');
-  }catch(error){if(turno===generacion)estado(error.message)}
+  }catch(error){if(turno===generacion){estado(error.message);mostrarReintento(true)}}
 }
 function pintarCatalogo(){
   if(idActual || !catalogoCargado)return;
@@ -65,7 +65,7 @@ function pintarCatalogo(){
 async function cargarCatalogo(){
   if(cargandoCatalogo)return;cargandoCatalogo=true;
   const turno=++cargaCatalogo;ui('refrescar-catalogo').disabled=true;
-  if(!idActual)estado('Cargando catálogo…');
+  if(!idActual){mostrarReintento(false);estado('Cargando catálogo…')}
   try{
     if(!navigator.onLine)throw Error('Sin conexión. Conéctate para consultar el catálogo.');
     const r=await jsonp({api:'catalogo'});if(turno!==cargaCatalogo)return;
@@ -77,11 +77,11 @@ async function cargarCatalogo(){
     ui('categoria-filtro').replaceChildren(todas,...categorias.map(c=>{const op=document.createElement('option');op.value=c;op.textContent=c;return op}));
     ui('categoria-filtro').value=categorias.includes(actual)?actual:'';categoriaPendiente='';
     pintarCatalogo();
-  }catch(error){if(turno===cargaCatalogo&&!idActual)estado(error.message)}
+  }catch(error){if(turno===cargaCatalogo&&!idActual){estado(error.message);mostrarReintento(true)}}
   finally{if(turno===cargaCatalogo){ui('refrescar-catalogo').disabled=false;cargandoCatalogo=false}}
 }
 function mostrarCatalogo(){
-  ++generacion;idActual='';limpiarVista();ui('catalogo').hidden=false;
+  ++generacion;idActual='';mostrarReintento(false);limpiarVista();ui('catalogo').hidden=false;
   if(catalogoCargado)pintarCatalogo();else cargarCatalogo();
 }
 function leerUbicacion(){
@@ -97,7 +97,7 @@ ui('buscar').addEventListener('submit',event=>{
 ui('consulta').addEventListener('input',()=>{mostrarCatalogo();const u=new URL(location.href);u.search=new URLSearchParams(parametrosFiltro()).toString();history.replaceState(null,'',u)});
 ui('categoria-filtro').addEventListener('change',()=>{guardarUrl(parametrosFiltro());mostrarCatalogo()});
 ui('limpiar-filtros').addEventListener('click',()=>{ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo()});
-ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);
+ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);ui('reintentar-conexion').addEventListener('click',()=>{if(idActual)consultar(idActual);else cargarCatalogo()});
 ui('actualizar').addEventListener('click',()=>{if(idActual)consultar(idActual)});
 function volverAlCatalogo(){ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo();ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 ui('volver-buscar').addEventListener('click',volverAlCatalogo);
@@ -144,7 +144,7 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
 window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.3.2',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

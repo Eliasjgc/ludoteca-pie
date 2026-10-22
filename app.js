@@ -113,6 +113,7 @@ function mensajeCamara(error){
   if(error.name==='NotFoundError')return 'No se encontró una cámara disponible. Puedes buscar el juego por nombre.';
   if(error.name==='NotReadableError')return 'No se pudo abrir la cámara. Cierra otras aplicaciones que la estén usando y vuelve a intentarlo.';
   if(error.message==='DECODER_UNAVAILABLE')return 'No se cargó el lector QR. Recarga la página con conexión e inténtalo de nuevo.';
+  if(error.message==='CANVAS_UNAVAILABLE')return 'El navegador no permite analizar la imagen. Abre la página directamente en Safari o Chrome y vuelve a intentarlo.';
   return 'No se pudo iniciar la cámara. Abre esta página HTTPS directamente en Safari o Chrome; también puedes buscar por nombre.';
 }
 async function abrirLector(){
@@ -123,13 +124,14 @@ async function abrirLector(){
     decode:window.jsQR,
     onRead(raw){
       const id=extraerCodigo(raw,location.href,config.publicApiUrl);
-      if(!id){if(raw!==ultimoRechazado){ui('estado-lector').textContent='Este QR no corresponde a una etiqueta de Ludoteca PIE. Apunta al código de un juego.';ultimoRechazado=raw}return false}
+      if(!id){if(raw!==ultimoRechazado){ui('estado-lector').textContent='QR reconocido, pero el enlace no corresponde a una etiqueta pública de esta ludoteca. Apunta al código de un juego.';ultimoRechazado=raw}return false}
       cerrarLector();ui('consulta').value=id;guardarUrl({id});consultar(id);return true;
     },
-    onError(){ui('estado-lector').textContent='No se pudo leer la imagen de la cámara. Inténtalo de nuevo.';ui('reintentar-camara').hidden=false}
+    onProgress(texto){if(dialog.open)ui('estado-lector').textContent=texto},
+    onError(error){ui('estado-lector').textContent=error&&['DECODER_UNAVAILABLE','CANVAS_UNAVAILABLE'].includes(error.message)?mensajeCamara(error):'Se interrumpió el análisis de la cámara. Pulsa Intentar de nuevo.';ui('reintentar-camara').hidden=false}
   });
   ultimoRechazado='';
-  try{if(await scanner.start())ui('estado-lector').textContent='Apunta al QR y mantén el teléfono quieto un momento.'}
+  try{if(await scanner.start())ui('estado-lector').textContent='Cámara lista. Buscando un QR… Mantén la etiqueta completa dentro del recuadro.'}
   catch(error){if(dialog.open){ui('estado-lector').textContent=mensajeCamara(error);ui('reintentar-camara').hidden=false}}
 }
 ui('escanear').addEventListener('click',abrirLector);ui('escanear-ficha').addEventListener('click',abrirLector);
@@ -144,7 +146,7 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
 window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.3.2',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.4.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

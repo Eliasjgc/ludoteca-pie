@@ -9,6 +9,8 @@ const claveCatalogo='ludoteca-catalogo-v271:'+config.publicApiUrl;
 let almacenamiento;try{almacenamiento=window.localStorage}catch(error){}
 const fotosCatalogo=new CatalogPhotoLoader({almacen:new PhotoStore({api:config.publicApiUrl}),cargar:id=>jsonp({api:'foto',id,v:'27'})});
 let inicioCatalogo;
+let filtroPendiente,contextoCatalogo;
+const fichasEnCurso=new Map();
 function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
 function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
 function guardarUrl(params){const u=new URL(location.href);u.search=new URLSearchParams(params).toString();history.pushState(null,'',u)}
@@ -42,16 +44,34 @@ function mostrarFicha(g){
   fotosCatalogo.observar(ui('ficha'),g.referencia,ui('foto'),ui('sin-foto'),g.versionFoto);
   ui('ficha').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 }
+function anticiparFicha(id){
+  const g=catalogo.find(g=>g.referencia===id.split('-')[0]);if(!g)return;
+  ui('nombre').textContent=g.nombre;ui('categoria').textContent=g.categoria||'Sin categoría';
+  ui('descripcion').textContent='Cargando descripción…';
+  for(const campo of ['total','disponibles','prestados'])ui(campo).textContent='…';
+  ui('nota-prestados').textContent='Consultando disponibilidad actual…';
+  ui('foto').alt='Fotografía de '+g.nombre;ui('foto').hidden=true;
+  ui('sin-foto').hidden=false;ui('sin-foto').textContent='Cargando fotografía…';ui('ficha').hidden=false;
+  fotosCatalogo.observar(ui('ficha'),g.referencia,ui('foto'),ui('sin-foto'),g.versionFoto);
+  ui('ficha').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+function solicitarFicha(id){
+  if(fichasEnCurso.has(id))return fichasEnCurso.get(id);
+  const p=jsonp({api:'ficha',id,v:'27'}).finally(()=>fichasEnCurso.delete(id));fichasEnCurso.set(id,p);return p;
+}
 async function consultar(id){
+  clearTimeout(filtroPendiente);
   const turno=++generacion;limpiarVista();idActual=id;
   if(!codigoValido(id)){estado('Revisa el código de la etiqueta.');return}
   if(!navigator.onLine){estado('Sin conexión. Conéctate para consultar disponibilidad actual.');return}
   mostrarReintento(false);estado('Consultando disponibilidad…');
+  let resuelta=false;
+  prepararCatalogo().then(()=>{if(turno===generacion&&!resuelta)anticiparFicha(id)});
   try{
-    const [g]=await Promise.all([jsonp({api:'ficha',id,v:'27'}),prepararCatalogo()]);if(turno!==generacion)return;
+    const g=await solicitarFicha(id);resuelta=true;if(turno!==generacion)return;
     if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
     mostrarFicha(g);estado('Consulta realizada a las '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'.');
-  }catch(error){if(turno===generacion){estado(error.message);mostrarReintento(true)}}
+  }catch(error){resuelta=true;if(turno===generacion){ui('ficha').hidden=true;estado(error.message);mostrarReintento(true)}}
 }
 function pintarCatalogo(){
   if(idActual || !catalogoCargado)return;
@@ -66,7 +86,7 @@ function pintarCatalogo(){
     const texto=document.createElement('span');texto.className='game-card-info';
     const nombre=document.createElement('span');nombre.className='game-card-name';nombre.textContent=g.nombre;
     const categoria=document.createElement('span');categoria.className='game-card-category';categoria.textContent=g.categoria||'Sin categoría';texto.append(nombre,categoria);
-    boton.append(media,texto);boton.addEventListener('click',()=>{guardarUrl({id:g.referencia});consultar(g.referencia)});
+    boton.append(media,texto);boton.addEventListener('click',()=>{contextoCatalogo={q:ui('consulta').value,cat:ui('categoria-filtro').value,y:window.scrollY};guardarUrl({id:g.referencia});consultar(g.referencia)});
     fotosCatalogo.observar(boton,g.referencia,imagen,nota,g.versionFoto);return boton;
   }));
   ui('catalogo').hidden=false;ui('limpiar-filtros').hidden=!q&&!categoria;
@@ -88,7 +108,7 @@ function prepararCatalogo(){
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.7.2',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.8.0',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -112,6 +132,7 @@ async function cargarCatalogo(){
   finally{if(turno===cargaCatalogo){ui('refrescar-catalogo').disabled=false;cargandoCatalogo=false}}
 }
 function mostrarCatalogo(){
+  clearTimeout(filtroPendiente);
   ++generacion;idActual='';mostrarReintento(false);limpiarVista();ui('catalogo').hidden=false;
   if(catalogoCargado)pintarCatalogo();else cargarCatalogo();
 }
@@ -125,13 +146,20 @@ ui('buscar').addEventListener('submit',event=>{
   event.preventDefault();const raw=ui('consulta').value.trim();const id=extraerCodigo(raw,location.href,config.publicApiUrl);
   if(id){guardarUrl({id});consultar(id)}else{guardarUrl(parametrosFiltro());mostrarCatalogo()}
 });
-ui('consulta').addEventListener('input',()=>{mostrarCatalogo();const u=new URL(location.href);u.search=new URLSearchParams(parametrosFiltro()).toString();history.replaceState(null,'',u)});
+ui('consulta').addEventListener('input',()=>{clearTimeout(filtroPendiente);filtroPendiente=setTimeout(()=>{mostrarCatalogo();const u=new URL(location.href);u.search=new URLSearchParams(parametrosFiltro()).toString();history.replaceState(null,'',u)},120)});
 ui('categoria-filtro').addEventListener('change',()=>{guardarUrl(parametrosFiltro());mostrarCatalogo()});
 ui('limpiar-filtros').addEventListener('click',()=>{ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo()});
 ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);ui('reintentar-conexion').addEventListener('click',()=>{if(idActual)consultar(idActual);else cargarCatalogo()});
-function volverAlCatalogo(){ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo();ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
-ui('volver-buscar').addEventListener('click',volverAlCatalogo);
-ui('inicio-catalogo').addEventListener('click',volverAlCatalogo);
+function volverAlCatalogo(restablecer=false){
+  clearTimeout(filtroPendiente);const anterior=!restablecer&&contextoCatalogo;
+  if(restablecer)contextoCatalogo=null;
+  ui('consulta').value=anterior?anterior.q:'';ui('categoria-filtro').value=anterior?anterior.cat:'';categoriaPendiente='';
+  guardarUrl(parametrosFiltro());mostrarCatalogo();
+  if(anterior)requestAnimationFrame(()=>window.scrollTo({top:anterior.y,behavior:'auto'}));
+  else{ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
+}
+ui('volver-buscar').addEventListener('click',()=>volverAlCatalogo());
+ui('inicio-catalogo').addEventListener('click',()=>volverAlCatalogo(true));
 
 function cerrarLector(){
   if(scanner)scanner.stop();
@@ -146,10 +174,21 @@ function mensajeCamara(error){
   if(error.message==='CANVAS_UNAVAILABLE')return 'El navegador no permite analizar la imagen. Abre la página directamente en Safari o Chrome y vuelve a intentarlo.';
   return 'No se pudo iniciar la cámara. Abre esta página HTTPS directamente en Safari o Chrome; también puedes buscar por nombre.';
 }
+let cargaLector;
+function prepararLector(){
+  if(!cargaLector)cargaLector=Promise.all(['vendor/jsQR-1.4.0.js','scanner.js'].map(src=>new Promise((ok,no)=>{
+    const script=document.createElement('script');script.src='./'+src+'?v=2.8.0';
+    const timer=setTimeout(()=>{script.remove();no(Error('DECODER_UNAVAILABLE'))},15000);
+    script.onload=()=>{clearTimeout(timer);ok()};script.onerror=()=>{clearTimeout(timer);script.remove();no(Error('DECODER_UNAVAILABLE'))};document.head.append(script);
+  }))).catch(error=>{cargaLector=null;throw error});
+  return cargaLector;
+}
 async function abrirLector(){
   const dialog=ui('lector');
   if(!dialog.open){if(typeof dialog.showModal==='function')dialog.showModal();else{dialog.setAttribute('open','');dialog.classList.add('fallback-dialog')}}
   document.body.classList.add('scanning');ui('estado-lector').textContent='Permite el acceso a la cámara cuando el teléfono lo solicite.';ui('reintentar-camara').hidden=true;
+  try{await prepararLector()}catch(error){if(dialog.open){ui('estado-lector').textContent=mensajeCamara(error);ui('reintentar-camara').hidden=false}return}
+  if(!dialog.open)return;
   if(!scanner)scanner=new CameraQrScanner(ui('camara'),{
     decode:window.jsQR,
     onRead(raw){
@@ -197,7 +236,7 @@ window.addEventListener('appinstalled',()=>{appInstalada=true;instalacion=null;u
 modoAplicacion.addEventListener?.('change',event=>{appInstalada=event.matches||navigator.standalone===true;actualizarInstalacion()});
 actualizarInstalacion();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.7.2',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.8.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

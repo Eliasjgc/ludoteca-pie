@@ -65,7 +65,7 @@ test('las fichas antiguas y nuevas se validan sin aceptar datos inesperados',()=
 });
 test('el service worker reutiliza miniaturas y deja la disponibilidad en la red',async()=>{
   const handlers={},saved=new Map();let requests=0;
-  const cache={match:async r=>saved.get(r.url)?.clone(),put:async(r,response)=>saved.set(r.url,response)};
+  const cache={match:async r=>saved.get(r.url)?.clone(),put:async(r,response)=>saved.set(r.url,response),keys:async()=>[...saved.keys()].map(url=>({url})),delete:async r=>saved.delete(r.url)};
   const context={URL,Set,Promise,Response,self:{registration:{scope:'https://example.com/ludoteca/'},addEventListener:(name,fn)=>{handlers[name]=fn}},caches:{open:async()=>cache},fetch:async()=>{requests++;return new Response('webp')}};
   vm.createContext(context);vm.runInContext(fs.readFileSync(require('node:path').join(__dirname,'../sw.js'),'utf8'),context);
   async function request(url){let response;const waits=[];handlers.fetch({request:{method:'GET',url,mode:'cors'},respondWith:p=>{response=p},waitUntil:p=>waits.push(p)});if(!response)return null;const r=await response;await Promise.all(waits);return r.text()}

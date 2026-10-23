@@ -10,6 +10,7 @@ let almacenamiento;try{almacenamiento=window.localStorage}catch(error){}
 const fotosCatalogo=new CatalogPhotoLoader({almacen:new PhotoStore({api:config.publicApiUrl}),cargar:id=>jsonp({api:'foto',id,v:'27'})});
 let inicioCatalogo;
 let filtroPendiente,contextoCatalogo;
+let catalogoSolicitado=false;
 const fichasEnCurso=new Map();
 function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
 function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
@@ -108,7 +109,7 @@ function prepararCatalogo(){
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.8.0',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.8.1',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -124,6 +125,7 @@ async function cargarCatalogo(){
   try{
     const inicial=prepararCatalogo();
     if(!navigator.onLine){await inicial;throw Error('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad.')}
+    catalogoSolicitado=true;
     const [r]=await Promise.all([jsonp({api:'catalogo',v:'27'}),inicial]);if(turno!==cargaCatalogo)return;
     if(!catalogoValido(r))throw Error('No se pudo actualizar el catálogo. Vuelve a intentarlo.');
     aplicarCatalogo(r.juegos);guardarCatalogo(almacenamiento,claveCatalogo,r.juegos);
@@ -134,7 +136,8 @@ async function cargarCatalogo(){
 function mostrarCatalogo(){
   clearTimeout(filtroPendiente);
   ++generacion;idActual='';mostrarReintento(false);limpiarVista();ui('catalogo').hidden=false;
-  if(catalogoCargado)pintarCatalogo();else cargarCatalogo();
+  if(catalogoCargado)pintarCatalogo();
+  if(!catalogoSolicitado)cargarCatalogo();
 }
 function leerUbicacion(){
   const u=new URL(location.href),id=u.searchParams.get('id');
@@ -177,7 +180,7 @@ function mensajeCamara(error){
 let cargaLector;
 function prepararLector(){
   if(!cargaLector)cargaLector=Promise.all(['vendor/jsQR-1.4.0.js','scanner.js'].map(src=>new Promise((ok,no)=>{
-    const script=document.createElement('script');script.src='./'+src+'?v=2.8.0';
+    const script=document.createElement('script');script.src='./'+src+'?v=2.8.1';
     const timer=setTimeout(()=>{script.remove();no(Error('DECODER_UNAVAILABLE'))},15000);
     script.onload=()=>{clearTimeout(timer);ok()};script.onerror=()=>{clearTimeout(timer);script.remove();no(Error('DECODER_UNAVAILABLE'))};document.head.append(script);
   }))).catch(error=>{cargaLector=null;throw error});
@@ -210,7 +213,7 @@ window.addEventListener('pagehide',cerrarLector);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)cerrarLector();else if(idActual)consultar(idActual)});
 window.addEventListener('popstate',leerUbicacion);
 window.addEventListener('offline',()=>{++generacion;idActual='';limpiarVista();if(catalogoCargado)pintarCatalogo();estado('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad actual.')});
-window.addEventListener('online',leerUbicacion);
+window.addEventListener('online',()=>{catalogoSolicitado=false;leerUbicacion()});
 const modoAplicacion=matchMedia('(display-mode: standalone)');
 let appInstalada=modoAplicacion.matches||navigator.standalone===true;
 const esIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
@@ -236,9 +239,8 @@ window.addEventListener('appinstalled',()=>{appInstalada=true;instalacion=null;u
 modoAplicacion.addEventListener?.('change',event=>{appInstalada=event.matches||navigator.standalone===true;actualizarInstalacion()});
 actualizarInstalacion();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.8.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.8.1',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
-if(idActual)cargarCatalogo();
 
 

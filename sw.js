@@ -1,5 +1,5 @@
 'use strict';
-const VERSION='2.8.0';
+const VERSION='2.8.1';
 const PREFIX='ludoteca-pie-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+VERSION;
 const PHOTO_CACHE='ludoteca-miniaturas-'+new URL(self.registration.scope).pathname+'-v1';

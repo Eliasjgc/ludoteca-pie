@@ -20,6 +20,12 @@ test('las fichas simultáneas comparten la petición y cada apertura posterior c
  const a=t.ctx.consultar('J001'),b=t.ctx.consultar('J001');assert.equal(calls,1);release({disponibilidad:2});await Promise.all([a,b]);assert.equal(t.mostradas.length,1);
  const c=t.ctx.consultar('J001');assert.equal(calls,2);release({disponibilidad:1});await c;assert.equal(t.mostradas[1].disponibilidad,1);
 });
+test('volver desde un QR prepara el catálogo remoto una vez, después de abrir la ficha',()=>{
+ let peticiones=0,pintadas=0;
+ const ctx={clearTimeout,filtroPendiente:null,generacion:0,idActual:'J001',catalogoCargado:true,catalogoSolicitado:false,mostrarReintento(){},limpiarVista(){},ui:()=>({}),pintarCatalogo:()=>pintadas++,cargarCatalogo:()=>{peticiones++;ctx.catalogoSolicitado=true}};
+ vm.createContext(ctx);vm.runInContext(src.slice(src.indexOf('function mostrarCatalogo('),src.indexOf('function leerUbicacion(')),ctx);
+ assert.equal(peticiones,0);ctx.mostrarCatalogo();ctx.mostrarCatalogo();assert.equal(peticiones,1);assert.equal(pintadas,2);
+});
 test('el lector no forma parte de la carga inicial ni de la precarga del service worker',()=>{
  const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8');assert.ok(!/<script[^>]+(?:scanner|jsQR)/.test(html));
  const handlers={},loaded=[],ctx={URL,Set,Promise,self:{registration:{scope:'https://example.com/ludoteca/'},addEventListener:(n,f)=>handlers[n]=f,skipWaiting(){}},caches:{open:async()=>({addAll:async urls=>loaded.push(...urls)})}};

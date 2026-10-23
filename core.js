@@ -17,8 +17,9 @@
   }
   function fichaValida(g) {
     const keys=['nombre','fotografia','cantidadTotal','disponibilidad','categoria','descripcion'];
-    return !!g && [6,7].includes(Object.keys(g).length) && keys.every(k=>Object.prototype.hasOwnProperty.call(g,k)) &&
+    return !!g && [6,7,9].includes(Object.keys(g).length) && keys.every(k=>Object.prototype.hasOwnProperty.call(g,k)) &&
       (Object.keys(g).length===6 || (Object.prototype.hasOwnProperty.call(g,'prestados') && Number.isInteger(g.prestados) && g.prestados>=0 && g.prestados<=g.cantidadTotal-g.disponibilidad)) &&
+      (Object.keys(g).length!==9 || (/^J\d{3,8}$/.test(g.referencia) && typeof g.versionFoto==='string' && /^(?:[a-f0-9]{64})?$/.test(g.versionFoto))) &&
       ['nombre','fotografia','categoria','descripcion'].every(k=>typeof g[k]==='string') &&
       Number.isInteger(g.cantidadTotal) && Number.isInteger(g.disponibilidad) && g.disponibilidad>=0 && g.disponibilidad<=g.cantidadTotal;
   }

@@ -1,8 +1,8 @@
 'use strict';
-const VERSION='2.6.0';
+const VERSION='2.7.0';
 const PREFIX='ludoteca-pie-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+VERSION;
-const ASSETS=['app.css','catalogo.css','identidad.css','alegria.css','fonts/fonts.css','app.js','catalogo-fotos.js','core.js','scanner.js','config.js','vendor/jsQR-1.4.0.js','manifest.webmanifest','icons/boyeco-transparente-192.png','icons/boyeco-transparente-512.png','icons/boyeco-transparente-apple.png','icons/boyeco-transparente-favicon.png','icons/logo-escuela-transparente.png'];
+const ASSETS=['app.css','catalogo.css','identidad.css','alegria.css','fonts/fonts.css','app.js','fotos.js','catalogo-datos.js','catalogo-inicial.json','core.js','scanner.js','config.js','vendor/jsQR-1.4.0.js','manifest.webmanifest','icons/boyeco-transparente-192.png','icons/boyeco-transparente-512.png','icons/boyeco-transparente-apple.png','icons/boyeco-transparente-favicon.png','icons/logo-escuela-transparente.png'];
 const absolute=name=>new URL(name,self.registration.scope).href;
 const SHELL=['index.html',...ASSETS.map(name=>name+'?v='+VERSION),'fonts/nunito.woff2','fonts/atkinson.woff2'];
 const allowed=new Set(SHELL.map(absolute));
@@ -15,11 +15,14 @@ self.addEventListener('fetch',event=>{
   event.respondWith(fetch(request,{cache:'no-store'}).catch(()=>caches.open(CACHE).then(cache=>cache.match(absolute('index.html')))));
   return;
  }
- if(!allowed.has(url.href))return;
- // La red tiene prioridad. El caché solo se usa si la red falla y para esta versión exacta.
- event.respondWith(fetch(request,{cache:'no-store'}).then(response=>{
-  if(response.ok){const copy=response.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(request,copy)));return response;}
-  return caches.open(CACHE).then(cache=>cache.match(request)).then(cached=>cached||response);
- }).catch(()=>caches.open(CACHE).then(cache=>cache.match(request))));
+ const foto=url.search===''&&/^fotos\/J\d{3,8}-[a-f0-9]{12}\.webp$/.test(url.pathname.slice(scope.pathname.length));
+ if(!allowed.has(url.href)&&!foto)return;
+ // Archivos versionados y miniaturas con huella: reutilizarlos hasta que cambie su URL.
+ event.respondWith(caches.open(CACHE).then(async cache=>{
+  const cached=await cache.match(request);if(cached)return cached;
+  const response=await fetch(request);
+  if(response.ok){const copy=response.clone();event.waitUntil(cache.put(request,copy))}
+  return response;
+ }));
 });
 

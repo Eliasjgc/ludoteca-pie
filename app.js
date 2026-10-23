@@ -4,7 +4,11 @@ const config=window.LUDOTECA_CONFIG || {};
 const {codigoValido,extraerCodigo,fichaValida,filtrarCatalogo}=LudotecaTools;
 const endpointValido=u=>/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u || '');
 let idActual='',generacion=0,instalacion,scanner,ultimoRechazado='',catalogo=[],catalogoCargado=false,cargaCatalogo=0,categoriaPendiente='',cargandoCatalogo=false;
-const fotosCatalogo=new CatalogPhotoLoader({cargar:async id=>{const ficha=await jsonp({api:'ficha',id,v:'23'});if(!fichaValida(ficha))throw Error('Fotografía no disponible');return ficha.fotografia}});
+const {catalogoValido,leerCatalogo,guardarCatalogo}=CatalogoDatos;
+const claveCatalogo='ludoteca-catalogo-v27:'+config.publicApiUrl;
+let almacenamiento;try{almacenamiento=window.localStorage}catch(error){}
+const fotosCatalogo=new CatalogPhotoLoader({almacen:new PhotoStore({api:config.publicApiUrl}),cargar:id=>jsonp({api:'foto',id,v:'27'})});
+let inicioCatalogo;
 function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
 function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
 function guardarUrl(params){const u=new URL(location.href);u.search=new URLSearchParams(params).toString();history.pushState(null,'',u)}
@@ -18,7 +22,7 @@ function jsonp(params){
       window[name]=()=>{};setTimeout(()=>{delete window[name]},60000);
       error?reject(error):resolve(data);
     }
-    window[name]=data=>finish(null,data);
+    window[name]=data=>data&&typeof data.error==='string'?finish(Error(data.error)):finish(null,data);
     const u=new URL(config.publicApiUrl);u.search=new URLSearchParams({...params,callback:name,_:String(Date.now())}).toString();
     script.src=u.href;script.referrerPolicy='no-referrer';
     script.onerror=()=>finish(Error('No se pudo consultar. Comprueba la conexión y vuelve a intentarlo.'));
@@ -32,10 +36,10 @@ function mostrarFicha(g){
   ui('total').textContent=g.cantidadTotal;ui('disponibles').textContent=g.disponibilidad;
   ui('prestados').textContent=Number.isInteger(g.prestados)?g.prestados:'—';
   ui('nota-prestados').textContent=Number.isInteger(g.prestados)?(g.prestados===0?'No hay ejemplares prestados.':'Los préstamos incluyen la custodia prolongada.')+((g.cantidadTotal-g.disponibilidad-g.prestados)>0?' Hay otros ejemplares no disponibles por su estado.':''):'Actualiza la conexión pública para consultar cuántos están prestados.';
-  const fotoValida=/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+=*$/.test(g.fotografia)&&g.fotografia.length<=1400000;
-  ui('foto').hidden=!fotoValida;ui('sin-foto').hidden=fotoValida;
-  if(fotoValida){ui('foto').onerror=()=>{ui('foto').hidden=true;ui('sin-foto').hidden=false};ui('foto').src=g.fotografia;ui('foto').alt='Fotografía de '+g.nombre}
+  ui('foto').hidden=true;ui('sin-foto').hidden=false;ui('sin-foto').textContent='Cargando fotografía…';
+  ui('foto').alt='Fotografía de '+g.nombre;
   ui('ficha').hidden=false;
+  fotosCatalogo.observar(ui('ficha'),g.referencia,ui('foto'),ui('sin-foto'),g.versionFoto);
   ui('ficha').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 }
 async function consultar(id){
@@ -44,46 +48,66 @@ async function consultar(id){
   if(!navigator.onLine){estado('Sin conexión. Conéctate para consultar disponibilidad actual.');return}
   mostrarReintento(false);estado('Consultando disponibilidad…');
   try{
-    const g=await jsonp({api:'ficha',id,v:'23'});if(turno!==generacion)return;
+    const [g]=await Promise.all([jsonp({api:'ficha',id,v:'27'}),prepararCatalogo()]);if(turno!==generacion)return;
     if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
     mostrarFicha(g);estado('Consulta realizada a las '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'.');
   }catch(error){if(turno===generacion){estado(error.message);mostrarReintento(true)}}
 }
 function pintarCatalogo(){
   if(idActual || !catalogoCargado)return;
-  if(!navigator.onLine){limpiarVista();estado('Sin conexión. Conéctate para consultar el catálogo.');return}
   const q=ui('consulta').value.trim(),categoria=ui('categoria-filtro').value;
   const arr=filtrarCatalogo(catalogo,q,categoria);
   fotosCatalogo.pausar();
   ui('resultados').replaceChildren(...arr.map(g=>{
     const boton=document.createElement('button');boton.type='button';boton.className='game-card';boton.setAttribute('aria-label','Ver ficha de '+g.nombre);
     const media=document.createElement('span');media.className='game-card-media';
-    const imagen=document.createElement('img');imagen.alt='';imagen.hidden=true;imagen.decoding='async';
+    const imagen=document.createElement('img');imagen.alt='';imagen.hidden=true;imagen.decoding='async';imagen.loading='lazy';imagen.width=480;imagen.height=400;
     const nota=document.createElement('span');nota.className='game-card-placeholder';nota.textContent='Cargando fotografía…';media.append(imagen,nota);
     const texto=document.createElement('span');texto.className='game-card-info';
     const nombre=document.createElement('span');nombre.className='game-card-name';nombre.textContent=g.nombre;
     const categoria=document.createElement('span');categoria.className='game-card-category';categoria.textContent=g.categoria||'Sin categoría';texto.append(nombre,categoria);
     boton.append(media,texto);boton.addEventListener('click',()=>{guardarUrl({id:g.referencia});consultar(g.referencia)});
-    fotosCatalogo.observar(boton,g.referencia,imagen,nota);return boton;
+    fotosCatalogo.observar(boton,g.referencia,imagen,nota,g.versionFoto);return boton;
   }));
   ui('catalogo').hidden=false;ui('limpiar-filtros').hidden=!q&&!categoria;
   estado(arr.length===0?'No se encontraron juegos. Prueba otro nombre o categoría.':arr.length+' juego'+(arr.length===1?'':'s')+(q||categoria?(arr.length===1?' que coincide con tu búsqueda.':' que coinciden con tu búsqueda.'):' en el catálogo.'));
 }
+function aplicarCatalogo(juegos){
+  const cambio=JSON.stringify(catalogo)!==JSON.stringify(juegos);
+  catalogo=juegos;catalogoCargado=true;
+  const actual=categoriaPendiente||ui('categoria-filtro').value;
+  const categorias=[...new Set(catalogo.map(g=>g.categoria).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
+  const todas=document.createElement('option');todas.value='';todas.textContent='Todas las categorías';
+  ui('categoria-filtro').replaceChildren(todas,...categorias.map(c=>{const op=document.createElement('option');op.value=c;op.textContent=c;return op}));
+  ui('categoria-filtro').value=categorias.includes(actual)?actual:'';categoriaPendiente='';
+  if(cambio||!ui('resultados').children.length)pintarCatalogo();
+}
+function prepararCatalogo(){
+  if(inicioCatalogo)return inicioCatalogo;
+  const guardado=leerCatalogo(almacenamiento,claveCatalogo);
+  inicioCatalogo=(async()=>{
+    const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
+    try{
+      const r=await fetch('./catalogo-inicial.json?v=2.7.0',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
+      fotosCatalogo.miniaturas=inicial.fotos;
+      aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
+    }catch(error){if(guardado)aplicarCatalogo(guardado.juegos)}
+    finally{clearTimeout(timer)}
+  })();
+  return inicioCatalogo;
+}
 async function cargarCatalogo(){
   if(cargandoCatalogo)return;cargandoCatalogo=true;
   const turno=++cargaCatalogo;fotosCatalogo.limpiar();ui('refrescar-catalogo').disabled=true;
-  if(!idActual){mostrarReintento(false);estado('Cargando catálogo…')}
+  if(!idActual){mostrarReintento(false);if(!catalogoCargado)estado('Cargando catálogo…')}
   try{
-    if(!navigator.onLine)throw Error('Sin conexión. Conéctate para consultar el catálogo.');
-    const r=await jsonp({api:'catalogo'});if(turno!==cargaCatalogo)return;
-    if(!r||!Array.isArray(r.juegos)||r.juegos.some(g=>!g||Object.keys(g).length!==3||!/^J[0-9]{3,8}$/.test(g.referencia)||typeof g.nombre!=='string'||typeof g.categoria!=='string'))throw Error('Para mostrar el catálogo completo falta actualizar la conexión pública. La consulta por QR o código puede seguir funcionando.');
-    catalogo=r.juegos;catalogoCargado=true;
-    const actual=categoriaPendiente||ui('categoria-filtro').value;
-    const categorias=[...new Set(catalogo.map(g=>g.categoria).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));
-    const todas=document.createElement('option');todas.value='';todas.textContent='Todas las categorías';
-    ui('categoria-filtro').replaceChildren(todas,...categorias.map(c=>{const op=document.createElement('option');op.value=c;op.textContent=c;return op}));
-    ui('categoria-filtro').value=categorias.includes(actual)?actual:'';categoriaPendiente='';
-    pintarCatalogo();
+    const inicial=prepararCatalogo();
+    if(!navigator.onLine){await inicial;throw Error('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad.')}
+    const [r]=await Promise.all([jsonp({api:'catalogo',v:'27'}),inicial]);if(turno!==cargaCatalogo)return;
+    if(!catalogoValido(r))throw Error('No se pudo actualizar el catálogo. Vuelve a intentarlo.');
+    aplicarCatalogo(r.juegos);guardarCatalogo(almacenamiento,claveCatalogo,r.juegos);
+    if(!idActual)estado('Catálogo actualizado. '+catalogo.length+' juegos.');
   }catch(error){if(turno===cargaCatalogo&&!idActual){estado(error.message);mostrarReintento(true)}}
   finally{if(turno===cargaCatalogo){ui('refrescar-catalogo').disabled=false;cargandoCatalogo=false}}
 }
@@ -146,13 +170,13 @@ ui('lector').addEventListener('cancel',cerrarLector);ui('lector').addEventListen
 window.addEventListener('pagehide',cerrarLector);
 document.addEventListener('visibilitychange',()=>{if(document.hidden)cerrarLector();else if(idActual)consultar(idActual)});
 window.addEventListener('popstate',leerUbicacion);
-window.addEventListener('offline',()=>{++generacion;limpiarVista();estado('Sin conexión. Conéctate para consultar disponibilidad actual.')});
+window.addEventListener('offline',()=>{++generacion;idActual='';limpiarVista();if(catalogoCargado)pintarCatalogo();estado('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad actual.')});
 window.addEventListener('online',leerUbicacion);
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();instalacion=event;ui('instalar').hidden=false});
 ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
 window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.6.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.7.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

@@ -9,3 +9,5 @@ Las miniaturas WebP de `fotos/` se sirven directamente desde el sitio. El nombre
 La API de Apps Script se administra por separado en su proyecto privado. Mantiene el protocolo 2.3 para clientes anteriores y añade `v=27` en `catalogo`, `ficha` y `foto`. Las respuestas solo incluyen campos públicos; las versiones de foto son huellas SHA-256, sin identificadores de Drive. La implementación pública conserva su URL y sus permisos.
 
 Pruebas: `node --test tests/rendimiento.test.cjs`.
+
+El 23 de octubre de 2026 se realiza una única renumeración antes de imprimir las etiquetas: 58 juegos, J001–J058, y 85 ejemplares. A partir de ese ajuste, los códigos y QR son definitivos: eliminar un juego deja su código reservado, sin renumerar los demás ni reutilizar el número eliminado. La migración se ejecuta exclusivamente desde el proyecto administrativo y no forma parte del sitio público.

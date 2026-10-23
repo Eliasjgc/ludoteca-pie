@@ -5,7 +5,7 @@ const {codigoValido,extraerCodigo,fichaValida,filtrarCatalogo}=LudotecaTools;
 const endpointValido=u=>/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u || '');
 let idActual='',generacion=0,instalacion,scanner,ultimoRechazado='',catalogo=[],catalogoCargado=false,cargaCatalogo=0,categoriaPendiente='',cargandoCatalogo=false;
 const {catalogoValido,leerCatalogo,guardarCatalogo}=CatalogoDatos;
-const claveCatalogo='ludoteca-catalogo-v27:'+config.publicApiUrl;
+const claveCatalogo='ludoteca-catalogo-v271:'+config.publicApiUrl;
 let almacenamiento;try{almacenamiento=window.localStorage}catch(error){}
 const fotosCatalogo=new CatalogPhotoLoader({almacen:new PhotoStore({api:config.publicApiUrl}),cargar:id=>jsonp({api:'foto',id,v:'27'})});
 let inicioCatalogo;
@@ -88,7 +88,7 @@ function prepararCatalogo(){
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.7.0',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.7.1',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -176,7 +176,7 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
 window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.7.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.7.1',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

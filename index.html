@@ -9,24 +9,24 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://script.google.com https://script.googleusercontent.com; img-src 'self' data:; style-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'; manifest-src 'self'">
   <title>Ludoteca PIE · Escuela Boyeco</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=2.7.1">
-  <link rel="icon" href="./icons/boyeco-transparente-favicon.png?v=2.7.1" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/boyeco-transparente-apple.png?v=2.7.1">
-  <link rel="stylesheet" href="./app.css?v=2.7.1">
-  <link rel="stylesheet" href="./catalogo.css?v=2.7.1">
-  <link rel="stylesheet" href="./fonts/fonts.css?v=2.7.1">
-  <link rel="stylesheet" href="./identidad.css?v=2.7.1">
-  <link rel="stylesheet" href="./alegria.css?v=2.7.1">
-  <script src="./config.js?v=2.7.1" defer></script>
-  <script src="./core.js?v=2.7.1" defer></script>
-  <script src="./vendor/jsQR-1.4.0.js?v=2.7.1" defer></script>
-  <script src="./scanner.js?v=2.7.1" defer></script>
-  <script src="./catalogo-datos.js?v=2.7.1" defer></script>
-  <script src="./fotos.js?v=2.7.1" defer></script>
-  <script src="./app.js?v=2.7.1" defer></script>
+  <link rel="manifest" href="./manifest.webmanifest?v=2.7.2">
+  <link rel="icon" href="./icons/boyeco-transparente-favicon.png?v=2.7.2" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/boyeco-transparente-apple.png?v=2.7.2">
+  <link rel="stylesheet" href="./app.css?v=2.7.2">
+  <link rel="stylesheet" href="./catalogo.css?v=2.7.2">
+  <link rel="stylesheet" href="./fonts/fonts.css?v=2.7.2">
+  <link rel="stylesheet" href="./identidad.css?v=2.7.2">
+  <link rel="stylesheet" href="./alegria.css?v=2.7.2">
+  <script src="./config.js?v=2.7.2" defer></script>
+  <script src="./core.js?v=2.7.2" defer></script>
+  <script src="./vendor/jsQR-1.4.0.js?v=2.7.2" defer></script>
+  <script src="./scanner.js?v=2.7.2" defer></script>
+  <script src="./catalogo-datos.js?v=2.7.2" defer></script>
+  <script src="./fotos.js?v=2.7.2" defer></script>
+  <script src="./app.js?v=2.7.2" defer></script>
 </head>
 <body>
-  <header><div class="brand"><img src="./icons/logo-escuela-transparente.png?v=2.7.1" width="76" height="76" alt="Escuela Municipal Boyeco"><div><strong>Ludoteca PIE</strong><span>Escuela Municipal Boyeco</span><small>Programa de Integración Escolar</small></div></div><a class="admin-link" href="https://script.google.com/macros/s/AKfycbw6E5QyWPimQhS3XMEas1A9X9z2VuXsoz50krZVo6GawAph3P8_og8mZEWh1CGGwe6DJw/exec" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Administración privada ↗</a></header>
+  <header><div class="brand"><img src="./icons/logo-escuela-transparente.png?v=2.7.2" width="76" height="76" alt="Escuela Municipal Boyeco"><div><strong>Ludoteca PIE</strong><span>Escuela Municipal Boyeco</span><small>Programa de Integración Escolar</small></div></div><a class="admin-link" href="https://script.google.com/macros/s/AKfycbw6E5QyWPimQhS3XMEas1A9X9z2VuXsoz50krZVo6GawAph3P8_og8mZEWh1CGGwe6DJw/exec" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Administración privada ↗</a></header>
   <main>
     <section class="intro"><p class="eyebrow">JUGAR · APRENDER · COMPARTIR</p><h1>Encuentra tu próximo juego.</h1><p>Busca por nombre o escanea una etiqueta para consultar su ficha y disponibilidad.</p></section>
     <section class="search-area" aria-label="Buscar un juego">
@@ -40,7 +40,17 @@
       <div class="cover-area"><img id="foto" alt="" hidden><span id="sin-foto">Fotografía no disponible</span></div>
       <div class="game-info"><p class="eyebrow" id="categoria"></p><h2 id="nombre"></h2><div class="counts"><div><span>Cantidad total</span><strong id="total"></strong></div><div><span>Disponibles</span><strong id="disponibles"></strong></div><div><span>Prestados</span><strong id="prestados"></strong></div></div><p id="nota-prestados" class="note"></p><h3>Descripción</h3><p id="descripcion" class="description"></p><p class="note">Disponibilidad consultada al abrir esta ficha.</p><button id="volver-buscar" type="button" class="link-button">Volver al catálogo y buscar otro juego</button></div>
     </article>
-    <aside class="install"><h2>La ludoteca, en tu teléfono</h2><p>Añade esta página a tu pantalla de inicio para volver cuando quieras.</p><button id="instalar" type="button" hidden>Instalar aplicación</button><details><summary>Cómo instalar en Android o iPhone</summary><p><b>Android:</b> en Chrome, abre el menú ⋮ y busca «Instalar aplicación» o «Añadir a pantalla de inicio».</p><p><b>iPhone o iPad:</b> en Safari, pulsa Compartir y «Añadir a pantalla de inicio». Si aparece «Abrir como app web», actívalo.</p><p>Necesitas conexión para consultar la disponibilidad actual.</p></details></aside>
+    <aside class="install">
+      <h2>La ludoteca, en tu teléfono</h2><p>Añade esta página a tu pantalla de inicio para volver cuando quieras.</p>
+      <button id="instalar" type="button" aria-controls="ayuda-instalacion">Instalar aplicación</button>
+      <p id="app-instalada" role="status" hidden>Ya estás usando la ludoteca como aplicación.</p>
+      <details id="ayuda-instalacion"><summary>Cómo instalar en Safari o Chrome</summary>
+        <div id="instalacion-ios"><h3>iPhone o iPad · Safari y Chrome</h3><ol><li>Abre esta página en Safari o Chrome y toca <b>Compartir</b> (el cuadrado con una flecha hacia arriba). En Safari, puede estar dentro de <b>Más (…)</b>.</li><li>Busca <b>Añadir a pantalla de inicio</b> o <b>Agregar a Inicio</b>. Si aparece <b>Abrir como app web</b>, déjalo activado.</li><li>Toca <b>Añadir</b> o <b>Agregar</b>. Encontrarás el icono de Ludoteca PIE en tu pantalla de inicio.</li></ol><p>Si Chrome no muestra esa opción, abre esta misma página en Safari.</p></div>
+        <div id="instalacion-android"><h3>Android · Chrome</h3><ol><li>Si el botón abre un aviso de instalación, toca <b>Instalar</b>.</li><li>Si no aparece el aviso, abre el menú <b>⋮</b> de Chrome y busca <b>Instalar aplicación</b>, <b>Instalar y crear acceso directo</b> o <b>Añadir a pantalla de inicio</b>.</li><li>Confirma la instalación siguiendo las indicaciones del teléfono.</li></ol></div>
+        <div id="instalacion-otros"><h3>En un computador</h3><p>En Chrome o Edge, usa la opción de instalar de la barra de direcciones o del menú del navegador. En Safari de Mac, usa <b>Archivo → Agregar al Dock</b>.</p></div>
+        <p>Necesitas conexión para consultar la disponibilidad actual.</p>
+      </details>
+    </aside>
     <noscript>Activa JavaScript para consultar las fichas y utilizar el lector QR.</noscript>
   </main>
   <dialog id="lector" aria-labelledby="titulo-lector">
@@ -48,10 +58,10 @@
     <p>Apunta la cámara trasera a la etiqueta del juego. Al reconocerla se abrirá su ficha aquí mismo.</p>
     <div class="video-area"><video id="camara" playsinline muted autoplay aria-label="Vista de la cámara para leer QR"></video><div class="scan-frame" aria-hidden="true"></div></div>
     <p id="estado-lector" role="status" aria-live="polite">Preparando cámara…</p>
-    <p class="note">Lector QR 2.7.1 · La imagen se analiza en tu teléfono. No se envía ni se guarda.</p>
+    <p class="note">Lector QR 2.7.2 · La imagen se analiza en tu teléfono. No se envía ni se guarda.</p>
     <button type="button" id="reintentar-camara" class="secondary" hidden>Intentar de nuevo</button>
   </dialog>
-  <footer>Escuela Municipal Boyeco · Ludoteca PIE · Consulta pública 2.7.1</footer>
+  <footer>Escuela Municipal Boyeco · Ludoteca PIE · Consulta pública 2.7.2</footer>
 </body>
 </html>
 

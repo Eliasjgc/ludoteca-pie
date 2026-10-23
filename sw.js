@@ -1,5 +1,5 @@
 'use strict';
-const VERSION='2.7.1';
+const VERSION='2.7.2';
 const PREFIX='ludoteca-pie-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+VERSION;
 const ASSETS=['app.css','catalogo.css','identidad.css','alegria.css','fonts/fonts.css','app.js','fotos.js','catalogo-datos.js','catalogo-inicial.json','core.js','scanner.js','config.js','vendor/jsQR-1.4.0.js','manifest.webmanifest','icons/boyeco-transparente-192.png','icons/boyeco-transparente-512.png','icons/boyeco-transparente-apple.png','icons/boyeco-transparente-favicon.png','icons/logo-escuela-transparente.png'];

@@ -88,7 +88,7 @@ function prepararCatalogo(){
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.7.1',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.7.2',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -172,11 +172,32 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden)cerrarLecto
 window.addEventListener('popstate',leerUbicacion);
 window.addEventListener('offline',()=>{++generacion;idActual='';limpiarVista();if(catalogoCargado)pintarCatalogo();estado('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad actual.')});
 window.addEventListener('online',leerUbicacion);
-window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();instalacion=event;ui('instalar').hidden=false});
-ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
-window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
+const modoAplicacion=matchMedia('(display-mode: standalone)');
+let appInstalada=modoAplicacion.matches||navigator.standalone===true;
+const esIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const esAndroid=/Android/i.test(navigator.userAgent)&&!esIOS;
+ui('instalacion-ios').hidden=esAndroid;
+ui('instalacion-android').hidden=esIOS;
+ui('instalacion-otros').hidden=esIOS||esAndroid;
+function actualizarInstalacion(){ui('instalar').hidden=appInstalada;ui('app-instalada').hidden=!appInstalada}
+function mostrarAyudaInstalacion(){
+  const ayuda=ui('ayuda-instalacion');ayuda.open=true;
+  ayuda.querySelector('summary').focus({preventScroll:true});
+  ayuda.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+}
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();if(!appInstalada)instalacion=event;actualizarInstalacion()});
+ui('instalar').addEventListener('click',async()=>{
+  if(!instalacion){mostrarAyudaInstalacion();return}
+  const aviso=instalacion;instalacion=null;
+  const boton=ui('instalar');boton.disabled=true;
+  try{await aviso.prompt()}catch(error){mostrarAyudaInstalacion()}
+  finally{boton.disabled=false;actualizarInstalacion()}
+});
+window.addEventListener('appinstalled',()=>{appInstalada=true;instalacion=null;ui('ayuda-instalacion').open=false;actualizarInstalacion()});
+modoAplicacion.addEventListener?.('change',event=>{appInstalada=event.matches||navigator.standalone===true;actualizarInstalacion()});
+actualizarInstalacion();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.7.1',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.7.2',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();

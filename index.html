@@ -9,22 +9,23 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://script.google.com https://script.googleusercontent.com; img-src 'self' data:; style-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'; manifest-src 'self'">
   <title>Ludoteca PIE · Escuela Boyeco</title>
-  <link rel="manifest" href="./manifest.webmanifest?v=2.4.0">
-  <link rel="icon" href="./icons/boyeco-transparente-favicon.png?v=2.4.0" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/boyeco-transparente-apple.png?v=2.4.0">
-  <link rel="stylesheet" href="./app.css?v=2.4.0">
-  <link rel="stylesheet" href="./catalogo.css?v=2.4.0">
-  <link rel="stylesheet" href="./fonts/fonts.css?v=2.4.0">
-  <link rel="stylesheet" href="./identidad.css?v=2.4.0">
-  <link rel="stylesheet" href="./alegria.css?v=2.4.0">
-  <script src="./config.js?v=2.4.0" defer></script>
-  <script src="./core.js?v=2.4.0" defer></script>
-  <script src="./vendor/jsQR-1.4.0.js?v=2.4.0" defer></script>
-  <script src="./scanner.js?v=2.4.0" defer></script>
-  <script src="./app.js?v=2.4.0" defer></script>
+  <link rel="manifest" href="./manifest.webmanifest?v=2.6.0">
+  <link rel="icon" href="./icons/boyeco-transparente-favicon.png?v=2.6.0" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/boyeco-transparente-apple.png?v=2.6.0">
+  <link rel="stylesheet" href="./app.css?v=2.6.0">
+  <link rel="stylesheet" href="./catalogo.css?v=2.6.0">
+  <link rel="stylesheet" href="./fonts/fonts.css?v=2.6.0">
+  <link rel="stylesheet" href="./identidad.css?v=2.6.0">
+  <link rel="stylesheet" href="./alegria.css?v=2.6.0">
+  <script src="./config.js?v=2.6.0" defer></script>
+  <script src="./core.js?v=2.6.0" defer></script>
+  <script src="./vendor/jsQR-1.4.0.js?v=2.6.0" defer></script>
+  <script src="./scanner.js?v=2.6.0" defer></script>
+  <script src="./catalogo-fotos.js?v=2.6.0" defer></script>
+  <script src="./app.js?v=2.6.0" defer></script>
 </head>
 <body>
-  <header><div class="brand"><img src="./icons/logo-escuela-transparente.png?v=2.4.0" width="76" height="76" alt="Escuela Municipal Boyeco"><div><strong>Ludoteca PIE</strong><span>Escuela Municipal Boyeco</span><small>Programa de Integración Escolar</small></div></div><a class="admin-link" href="https://script.google.com/macros/s/AKfycbw6E5QyWPimQhS3XMEas1A9X9z2VuXsoz50krZVo6GawAph3P8_og8mZEWh1CGGwe6DJw/exec" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Administración privada ↗</a></header>
+  <header><div class="brand"><img src="./icons/logo-escuela-transparente.png?v=2.6.0" width="76" height="76" alt="Escuela Municipal Boyeco"><div><strong>Ludoteca PIE</strong><span>Escuela Municipal Boyeco</span><small>Programa de Integración Escolar</small></div></div><a class="admin-link" href="https://script.google.com/macros/s/AKfycbw6E5QyWPimQhS3XMEas1A9X9z2VuXsoz50krZVo6GawAph3P8_og8mZEWh1CGGwe6DJw/exec" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Administración privada ↗</a></header>
   <main>
     <section class="intro"><p class="eyebrow">JUGAR · APRENDER · COMPARTIR</p><h1>Encuentra tu próximo juego.</h1><p>Busca por nombre o escanea una etiqueta para consultar su ficha y disponibilidad.</p></section>
     <section class="search-area" aria-label="Buscar un juego">
@@ -32,11 +33,11 @@
       <form id="buscar" class="search"><label for="consulta">Nombre, categoría o código del juego</label><div class="search-row"><input id="consulta" name="q" type="search" placeholder="Ej.: Ajedrez, UNO o J001-01" maxlength="80" autocomplete="off" required><button type="submit">Buscar</button></div></form>
       <button id="inicio-catalogo" type="button" class="link-button">Ver todo el catálogo</button>
     </section>
-    <section id="catalogo" aria-labelledby="titulo-catalogo"><div class="catalog-heading"><h2 id="titulo-catalogo">Catálogo de juegos</h2><button id="refrescar-catalogo" type="button" class="secondary">Actualizar catálogo</button></div><label for="categoria-filtro">Filtrar por categoría</label><select id="categoria-filtro"><option value="">Todas las categorías</option></select><p class="note">Toca el nombre de un juego para ver su ficha.</p><div id="resultados" class="name-list" aria-label="Listado de juegos"></div><button id="limpiar-filtros" class="link-button" type="button" hidden>Mostrar todo el catálogo</button></section>
+    <section id="catalogo" aria-labelledby="titulo-catalogo"><div class="catalog-heading"><h2 id="titulo-catalogo">Catálogo de juegos</h2><button id="refrescar-catalogo" type="button" class="secondary">Actualizar catálogo</button></div><label for="categoria-filtro">Filtrar por categoría</label><select id="categoria-filtro"><option value="">Todas las categorías</option></select><p class="note">Toca la fotografía o el nombre de un juego para ver su ficha.</p><div id="resultados" class="catalog-grid" aria-label="Listado de juegos"></div><button id="limpiar-filtros" class="link-button" type="button" hidden>Mostrar todo el catálogo</button></section>
     <div class="recovery-actions"><button id="reintentar-conexion" type="button" class="secondary" hidden>Reintentar conexión</button></div><p id="estado" role="status" aria-live="polite">Cargando catálogo…</p>
     <article id="ficha" hidden aria-labelledby="nombre">
       <div class="cover-area"><img id="foto" alt="" hidden><span id="sin-foto">Fotografía no disponible</span></div>
-      <div class="game-info"><p class="eyebrow" id="categoria"></p><h2 id="nombre"></h2><div class="counts"><div><span>Cantidad total</span><strong id="total"></strong></div><div><span>Disponibles</span><strong id="disponibles"></strong></div><div><span>Prestados</span><strong id="prestados"></strong></div></div><p id="nota-prestados" class="note"></p><h3>Descripción</h3><p id="descripcion" class="description"></p><p class="note">La disponibilidad puede cambiar. Actualízala antes de solicitar el juego.</p><div class="actions"><button id="escanear-ficha" type="button"><svg class="camera-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/></svg> Escanear otro QR</button><button id="actualizar" type="button" class="secondary">Actualizar disponibilidad</button></div><button id="volver-buscar" type="button" class="link-button">Volver al catálogo y buscar otro juego</button></div>
+      <div class="game-info"><p class="eyebrow" id="categoria"></p><h2 id="nombre"></h2><div class="counts"><div><span>Cantidad total</span><strong id="total"></strong></div><div><span>Disponibles</span><strong id="disponibles"></strong></div><div><span>Prestados</span><strong id="prestados"></strong></div></div><p id="nota-prestados" class="note"></p><h3>Descripción</h3><p id="descripcion" class="description"></p><p class="note">Disponibilidad consultada al abrir esta ficha.</p><button id="volver-buscar" type="button" class="link-button">Volver al catálogo y buscar otro juego</button></div>
     </article>
     <aside class="install"><h2>La ludoteca, en tu teléfono</h2><p>Añade esta página a tu pantalla de inicio para volver cuando quieras.</p><button id="instalar" type="button" hidden>Instalar aplicación</button><details><summary>Cómo instalar en Android o iPhone</summary><p><b>Android:</b> en Chrome, abre el menú ⋮ y busca «Instalar aplicación» o «Añadir a pantalla de inicio».</p><p><b>iPhone o iPad:</b> en Safari, pulsa Compartir y «Añadir a pantalla de inicio». Si aparece «Abrir como app web», actívalo.</p><p>Necesitas conexión para consultar la disponibilidad actual.</p></details></aside>
     <noscript>Activa JavaScript para consultar las fichas y utilizar el lector QR.</noscript>
@@ -46,10 +47,11 @@
     <p>Apunta la cámara trasera a la etiqueta del juego. Al reconocerla se abrirá su ficha aquí mismo.</p>
     <div class="video-area"><video id="camara" playsinline muted autoplay aria-label="Vista de la cámara para leer QR"></video><div class="scan-frame" aria-hidden="true"></div></div>
     <p id="estado-lector" role="status" aria-live="polite">Preparando cámara…</p>
-    <p class="note">Lector QR 2.4.0 · La imagen se analiza en tu teléfono. No se envía ni se guarda.</p>
+    <p class="note">Lector QR 2.6.0 · La imagen se analiza en tu teléfono. No se envía ni se guarda.</p>
     <button type="button" id="reintentar-camara" class="secondary" hidden>Intentar de nuevo</button>
   </dialog>
-  <footer>Escuela Municipal Boyeco · Ludoteca PIE · Consulta pública 2.4.0</footer>
+  <footer>Escuela Municipal Boyeco · Ludoteca PIE · Consulta pública 2.6.0</footer>
 </body>
 </html>
+
 

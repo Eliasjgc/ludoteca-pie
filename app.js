@@ -4,8 +4,9 @@ const config=window.LUDOTECA_CONFIG || {};
 const {codigoValido,extraerCodigo,fichaValida,filtrarCatalogo}=LudotecaTools;
 const endpointValido=u=>/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u || '');
 let idActual='',generacion=0,instalacion,scanner,ultimoRechazado='',catalogo=[],catalogoCargado=false,cargaCatalogo=0,categoriaPendiente='',cargandoCatalogo=false;
+const fotosCatalogo=new CatalogPhotoLoader({cargar:async id=>{const ficha=await jsonp({api:'ficha',id,v:'23'});if(!fichaValida(ficha))throw Error('Fotografía no disponible');return ficha.fotografia}});
 function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
-function limpiarVista(){ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
+function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
 function guardarUrl(params){const u=new URL(location.href);u.search=new URLSearchParams(params).toString();history.pushState(null,'',u)}
 function jsonp(params){
   return new Promise((resolve,reject)=>{
@@ -53,18 +54,24 @@ function pintarCatalogo(){
   if(!navigator.onLine){limpiarVista();estado('Sin conexión. Conéctate para consultar el catálogo.');return}
   const q=ui('consulta').value.trim(),categoria=ui('categoria-filtro').value;
   const arr=filtrarCatalogo(catalogo,q,categoria);
+  fotosCatalogo.pausar();
   ui('resultados').replaceChildren(...arr.map(g=>{
-    const boton=document.createElement('button');boton.type='button';boton.className='game-name';
-    const nombre=document.createElement('span');nombre.textContent=g.nombre;
-    const flecha=document.createElement('span');flecha.textContent='→';flecha.setAttribute('aria-hidden','true');
-    boton.append(nombre,flecha);boton.addEventListener('click',()=>{guardarUrl({id:g.referencia});consultar(g.referencia)});return boton;
+    const boton=document.createElement('button');boton.type='button';boton.className='game-card';boton.setAttribute('aria-label','Ver ficha de '+g.nombre);
+    const media=document.createElement('span');media.className='game-card-media';
+    const imagen=document.createElement('img');imagen.alt='';imagen.hidden=true;imagen.decoding='async';
+    const nota=document.createElement('span');nota.className='game-card-placeholder';nota.textContent='Cargando fotografía…';media.append(imagen,nota);
+    const texto=document.createElement('span');texto.className='game-card-info';
+    const nombre=document.createElement('span');nombre.className='game-card-name';nombre.textContent=g.nombre;
+    const categoria=document.createElement('span');categoria.className='game-card-category';categoria.textContent=g.categoria||'Sin categoría';texto.append(nombre,categoria);
+    boton.append(media,texto);boton.addEventListener('click',()=>{guardarUrl({id:g.referencia});consultar(g.referencia)});
+    fotosCatalogo.observar(boton,g.referencia,imagen,nota);return boton;
   }));
   ui('catalogo').hidden=false;ui('limpiar-filtros').hidden=!q&&!categoria;
   estado(arr.length===0?'No se encontraron juegos. Prueba otro nombre o categoría.':arr.length+' juego'+(arr.length===1?'':'s')+(q||categoria?(arr.length===1?' que coincide con tu búsqueda.':' que coinciden con tu búsqueda.'):' en el catálogo.'));
 }
 async function cargarCatalogo(){
   if(cargandoCatalogo)return;cargandoCatalogo=true;
-  const turno=++cargaCatalogo;ui('refrescar-catalogo').disabled=true;
+  const turno=++cargaCatalogo;fotosCatalogo.limpiar();ui('refrescar-catalogo').disabled=true;
   if(!idActual){mostrarReintento(false);estado('Cargando catálogo…')}
   try{
     if(!navigator.onLine)throw Error('Sin conexión. Conéctate para consultar el catálogo.');
@@ -98,7 +105,6 @@ ui('consulta').addEventListener('input',()=>{mostrarCatalogo();const u=new URL(l
 ui('categoria-filtro').addEventListener('change',()=>{guardarUrl(parametrosFiltro());mostrarCatalogo()});
 ui('limpiar-filtros').addEventListener('click',()=>{ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo()});
 ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);ui('reintentar-conexion').addEventListener('click',()=>{if(idActual)consultar(idActual);else cargarCatalogo()});
-ui('actualizar').addEventListener('click',()=>{if(idActual)consultar(idActual)});
 function volverAlCatalogo(){ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo();ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 ui('volver-buscar').addEventListener('click',volverAlCatalogo);
 ui('inicio-catalogo').addEventListener('click',volverAlCatalogo);
@@ -134,7 +140,7 @@ async function abrirLector(){
   try{if(await scanner.start())ui('estado-lector').textContent='Cámara lista. Buscando un QR… Mantén la etiqueta completa dentro del recuadro.'}
   catch(error){if(dialog.open){ui('estado-lector').textContent=mensajeCamara(error);ui('reintentar-camara').hidden=false}}
 }
-ui('escanear').addEventListener('click',abrirLector);ui('escanear-ficha').addEventListener('click',abrirLector);
+ui('escanear').addEventListener('click',abrirLector);
 ui('reintentar-camara').addEventListener('click',abrirLector);ui('cerrar-lector').addEventListener('click',cerrarLector);
 ui('lector').addEventListener('cancel',cerrarLector);ui('lector').addEventListener('close',()=>{if(scanner)scanner.stop();document.body.classList.remove('scanning')});
 window.addEventListener('pagehide',cerrarLector);
@@ -146,8 +152,9 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 ui('instalar').addEventListener('click',async()=>{if(instalacion){await instalacion.prompt();instalacion=null;ui('instalar').hidden=true}});
 window.addEventListener('appinstalled',()=>{ui('instalar').hidden=true;instalacion=null});
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.4.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.6.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 if(idActual)cargarCatalogo();
+
 

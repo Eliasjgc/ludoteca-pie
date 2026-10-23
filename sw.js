@@ -1,8 +1,8 @@
 'use strict';
-const VERSION='2.4.0';
+const VERSION='2.6.0';
 const PREFIX='ludoteca-pie-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+VERSION;
-const ASSETS=['app.css','catalogo.css','identidad.css','alegria.css','fonts/fonts.css','app.js','core.js','scanner.js','config.js','vendor/jsQR-1.4.0.js','manifest.webmanifest','icons/boyeco-transparente-192.png','icons/boyeco-transparente-512.png','icons/boyeco-transparente-apple.png','icons/boyeco-transparente-favicon.png','icons/logo-escuela-transparente.png'];
+const ASSETS=['app.css','catalogo.css','identidad.css','alegria.css','fonts/fonts.css','app.js','catalogo-fotos.js','core.js','scanner.js','config.js','vendor/jsQR-1.4.0.js','manifest.webmanifest','icons/boyeco-transparente-192.png','icons/boyeco-transparente-512.png','icons/boyeco-transparente-apple.png','icons/boyeco-transparente-favicon.png','icons/logo-escuela-transparente.png'];
 const absolute=name=>new URL(name,self.registration.scope).href;
 const SHELL=['index.html',...ASSETS.map(name=>name+'?v='+VERSION),'fonts/nunito.woff2','fonts/atkinson.woff2'];
 const allowed=new Set(SHELL.map(absolute));
@@ -22,3 +22,4 @@ self.addEventListener('fetch',event=>{
   return caches.open(CACHE).then(cache=>cache.match(request)).then(cached=>cached||response);
  }).catch(()=>caches.open(CACHE).then(cache=>cache.match(request))));
 });
+

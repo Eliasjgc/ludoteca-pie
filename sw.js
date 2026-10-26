@@ -1,5 +1,5 @@
 'use strict';
-const VERSION='2.8.2';
+const VERSION='2.8.3';
 const PREFIX='ludoteca-pie-'+new URL(self.registration.scope).pathname+'-';
 const CACHE=PREFIX+VERSION;
 const PHOTO_CACHE='ludoteca-miniaturas-'+new URL(self.registration.scope).pathname+'-v1';
@@ -14,17 +14,24 @@ self.addEventListener('fetch',event=>{
  const request=event.request,url=new URL(request.url),scope=new URL(self.registration.scope);
  if(request.method!=='GET'||url.origin!==scope.origin||!url.pathname.startsWith(scope.pathname))return;
  if(request.mode==='navigate'){
-  event.respondWith(fetch(request,{cache:'no-store'}).catch(()=>caches.open(CACHE).then(cache=>cache.match(absolute('index.html')))));
+  event.respondWith((async()=>{
+   const saved=async()=>{try{return await (await caches.open(CACHE)).match(absolute('index.html'))}catch(error){return undefined}};
+   let timer;
+   const network=fetch(request,{cache:'no-store'}).then(async r=>{if(!r.ok){const cached=await saved();if(cached)return cached}return r});
+   try{return await Promise.race([network,new Promise((resolve,reject)=>{timer=setTimeout(()=>{saved().then(cached=>cached?resolve(cached):network.then(resolve,reject))},4000)})])}
+   catch(error){const cached=await saved();if(cached)return cached;throw error}
+   finally{clearTimeout(timer)}
+  })());
   return;
  }
  const foto=url.search===''&&/^fotos\/J\d{3,8}-[a-f0-9]{12}\.webp$/.test(url.pathname.slice(scope.pathname.length));
  if(!allowed.has(url.href)&&!foto)return;
  // Archivos versionados y miniaturas con huella: reutilizarlos hasta que cambie su URL.
- event.respondWith(caches.open(foto?PHOTO_CACHE:CACHE).then(async cache=>{
-  const cached=await cache.match(request);if(cached)return cached;
+ event.respondWith((async()=>{
+  let cache;try{cache=await caches.open(foto?PHOTO_CACHE:CACHE);const cached=await cache.match(request);if(cached)return cached}catch(error){cache=null}
   const response=await fetch(request);
-  if(response.ok){const copy=response.clone();event.waitUntil((async()=>{await cache.put(request,copy);if(foto){const keys=await cache.keys();await Promise.all(keys.slice(0,Math.max(0,keys.length-150)).map(key=>cache.delete(key)))}})())}
+  if(response.ok&&cache){const copy=response.clone();event.waitUntil((async()=>{await cache.put(request,copy);if(foto){const keys=await cache.keys();await Promise.all(keys.slice(0,Math.max(0,keys.length-150)).map(key=>cache.delete(key)))}})().catch(()=>{}))}
   return response;
- }));
+ })());
 });
 

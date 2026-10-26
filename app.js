@@ -65,7 +65,7 @@ async function consultar(id){
   const turno=++generacion;limpiarVista();idActual=id;
   if(!codigoValido(id)){estado('Revisa el código de la etiqueta.');return}
   if(!navigator.onLine){estado('Sin conexión. Conéctate para consultar disponibilidad actual.');return}
-  mostrarReintento(false);estado('Consultando disponibilidad…');
+  mostrarReintento(false);ui('actualizar-ficha').disabled=true;estado('Consultando disponibilidad…');
   let resuelta=false;
   prepararCatalogo().then(()=>{if(turno===generacion&&!resuelta)anticiparFicha(id)});
   try{
@@ -73,6 +73,7 @@ async function consultar(id){
     if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
     mostrarFicha(g);estado('Consulta realizada a las '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'.');
   }catch(error){resuelta=true;if(turno===generacion){ui('ficha').hidden=true;estado(error.message);mostrarReintento(true)}}
+  finally{if(turno===generacion)ui('actualizar-ficha').disabled=false}
 }
 function pintarCatalogo(){
   if(idActual || !catalogoCargado)return;
@@ -109,7 +110,7 @@ function prepararCatalogo(){
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.8.2',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.8.3',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -120,7 +121,7 @@ function prepararCatalogo(){
 }
 async function cargarCatalogo(){
   if(cargandoCatalogo)return;cargandoCatalogo=true;
-  const turno=++cargaCatalogo;fotosCatalogo.limpiar();ui('refrescar-catalogo').disabled=true;
+  const turno=++cargaCatalogo;ui('refrescar-catalogo').disabled=true;
   if(!idActual){mostrarReintento(false);if(!catalogoCargado)estado('Cargando catálogo…')}
   try{
     const inicial=prepararCatalogo();
@@ -161,6 +162,7 @@ function volverAlCatalogo(restablecer=false){
   if(anterior)requestAnimationFrame(()=>window.scrollTo({top:anterior.y,behavior:'auto'}));
   else{ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 }
+ui('actualizar-ficha').addEventListener('click',()=>{if(idActual)consultar(idActual)});
 ui('volver-buscar').addEventListener('click',()=>volverAlCatalogo());
 ui('inicio-catalogo').addEventListener('click',()=>volverAlCatalogo(true));
 
@@ -180,7 +182,7 @@ function mensajeCamara(error){
 let cargaLector;
 function prepararLector(){
   if(!cargaLector)cargaLector=Promise.all(['vendor/jsQR-1.4.0.js','scanner.js'].map(src=>new Promise((ok,no)=>{
-    const script=document.createElement('script');script.src='./'+src+'?v=2.8.2';
+    const script=document.createElement('script');script.src='./'+src+'?v=2.8.3';
     const timer=setTimeout(()=>{script.remove();no(Error('DECODER_UNAVAILABLE'))},15000);
     script.onload=()=>{clearTimeout(timer);ok()};script.onerror=()=>{clearTimeout(timer);script.remove();no(Error('DECODER_UNAVAILABLE'))};document.head.append(script);
   }))).catch(error=>{cargaLector=null;throw error});
@@ -239,7 +241,7 @@ window.addEventListener('appinstalled',()=>{appInstalada=true;instalacion=null;u
 modoAplicacion.addEventListener?.('change',event=>{appInstalada=event.matches||navigator.standalone===true;actualizarInstalacion()});
 actualizarInstalacion();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.8.2',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.8.3',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
 leerUbicacion();
 

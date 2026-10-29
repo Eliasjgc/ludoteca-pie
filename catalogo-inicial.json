@@ -1,2 +1,1021 @@
-{"generado":"2026-10-28T14:13:52.578229+00:00","juegos":[{"referencia":"J008","nombre":"¡Tiburón!","categoria":"Habilidad","versionFoto":"f04cd05ddc76d20bcb7d5f7d9d3e5e2ce9fd1290ae8cce6fe141c3d193b30f3a"},{"referencia":"J066","nombre":"¿Quién fue?","categoria":"Memoria","versionFoto":"b5c74ee5fbb72635965f0c32eea7a5a4fb2eb403585c029502924415fec8c863"},{"referencia":"J018","nombre":"7 Wonders Duel","categoria":"Estrategia","versionFoto":"bea0e3c1404879eece6664e94a1331cb6b40da6e55e34c0e80bbeb3d200fa308"},{"referencia":"J047","nombre":"Ahorcado - Magnético","categoria":"Palabras","versionFoto":"2a2423e8f70ed351d77677085dba77f49008d2787995be058d9ce4db9d59e643"},{"referencia":"J004","nombre":"Ajedrez - Dama Magnético","categoria":"Estrategia","versionFoto":"79ab3debf750c8e4acc8f8255dc7e33153e43aee958f5c9ba13c0cccd76b0292"},{"referencia":"J065","nombre":"Alto Voltaje","categoria":"Lógica","versionFoto":"0ffe06c4a99b13c9f04912e84565723f1198d1431c5ace50c6d18f8d8d4034d7"},{"referencia":"J056","nombre":"APLI: Puzzle Casita ABC","categoria":"Puzle","versionFoto":"80f44ca61f7d9c37b5575c16ece8146faba8f3b864286367ef4b6f10a46ba5eb"},{"referencia":"J032","nombre":"APLI: Puzzle Circular Sistema Solar 48 Piezas","categoria":"Puzle","versionFoto":"41cd0e05f887b6e81cb66f58edb1a98b21d4c227c1d66f276ce8798275a5ca01"},{"referencia":"J021","nombre":"Bandido Ed. Fractal","categoria":"Cooperativo","versionFoto":"5bf1cd594ec4a4f9636b668710c575d992d151ce7c5896e975ed86783915843a"},{"referencia":"J007","nombre":"Blocky","categoria":"Construcción","versionFoto":"db9a0d3c2db36f1fc94ebf1266a084cbf777bc0de3f5b512aa42acaa259797d7"},{"referencia":"J035","nombre":"Brain Trainer Puzzle","categoria":"Lógica","versionFoto":"ea51f50502dce62a110b76d6a277b1a339ea0ac74fd744540a20950a1f926db1"},{"referencia":"J012","nombre":"Chao Pescao!","categoria":"Fiesta","versionFoto":"b28fa8dec13a714337daf367cbbe8cd9c553de9640cc07dbdab9779b56df3214"},{"referencia":"J043","nombre":"Chromino Smallbox","categoria":"Estrategia","versionFoto":"d736c8d8ca6b42b5f92bb10f803438b95b22d6fbcf9e49a0082170e771b4c493"},{"referencia":"J016","nombre":"Ciudad de Puntos","categoria":"Estrategia","versionFoto":"73bd8a5a3bf93d4c704e311262e1696b73dc3c795f7be955a9d56d48f3d28660"},{"referencia":"J037","nombre":"Clementoni Mi Primer Puzzle - Vida Marina","categoria":"Puzle","versionFoto":"df0219ddaa9e14f9b16bdf9fdbd78473d45d0abc921e46e250df6f23809b0f7c"},{"referencia":"J041","nombre":"Concept Kids","categoria":"Cooperativo","versionFoto":"4c706d1136657df9ef07f3d1e237db8001a3ce09e928d7fe14bb191b51dd6c0e"},{"referencia":"J050","nombre":"Desmaius!","categoria":"Fiesta","versionFoto":"e4d9e18dbfcb0673f94c7fd626a0b41372141be61c5a7d3395888810005d0c26"},{"referencia":"J048","nombre":"Dino Fiesta","categoria":"Rapidez visual","versionFoto":"29017defedbbe91677d7a1cb4276accfacbd3ea11a8774c53d8d94cf4dd47e6f"},{"referencia":"J067","nombre":"Dixit","categoria":"Creatividad","versionFoto":"bc5a0246481504f624914ca9ee9f13d97188eade86463fb6ffbb3a1e5f3aab3e"},{"referencia":"J074","nombre":"Dixit Anniversary - Expansión","categoria":"Creatividad","versionFoto":"a3e3f6e11590207ef58b30fa304ecd1c552702dc76462f7ec4456d43662f43c2"},{"referencia":"J071","nombre":"Dixit Journey - Expansión","categoria":"Creatividad","versionFoto":"6b4fc8c7bb6a4a4694bbeadf4ccd2cf9a9a56889e96caeedfe0acc15adf2ae5b"},{"referencia":"J072","nombre":"Dixit Memories - Expansión","categoria":"Creatividad","versionFoto":"06f6e6a3424e7ab5ece3b265739ea0a3b1097c0c174957beb8ae89548f4ba780"},{"referencia":"J075","nombre":"Dixit Mirrors — Expansión","categoria":"Creatividad","versionFoto":"305a22ed2da44e1c4a257630958108ac385d91f51ded1530bb642044b83ec948"},{"referencia":"J068","nombre":"Dixit Odyssey","categoria":"Creatividad","versionFoto":"00a164bdad719c6218745e1ccd3937fe2234ffd31c501ee2fe0c28d78b2118e3"},{"referencia":"J070","nombre":"Dixit Origins - Expansión","categoria":"Creatividad","versionFoto":"bbdc2793a14af3c97cb0da89c2e7c8e9fefb8329d6e443c472d54521eb991ad7"},{"referencia":"J069","nombre":"Dixit Quest - Expansión","categoria":"Creatividad","versionFoto":"50fc8b754faf8d7298db31541af70c373356ad43be659ffe5cf68392ab799bbc"},{"referencia":"J073","nombre":"Dixit Revelations - Expansión","categoria":"Creatividad","versionFoto":"a6355c82e58d8d61ff665f2e21337abd2b81c85f0cd115ceadcb1bc4ef6ec303"},{"referencia":"J059","nombre":"Dobble","categoria":"Rapidez visual","versionFoto":"1e9dcadb24cc8a7d7b409a1315e77d4c537d2650230eec47cb01de1e08e6b2a7"},{"referencia":"J054","nombre":"Dobble 31 Minutos","categoria":"Rapidez visual","versionFoto":"46f6587af2a1eabd298df37dbbebd3e7cc9d7434fb9e079300389af86c9f2072"},{"referencia":"J046","nombre":"Dominó - Magnético","categoria":"Dominó","versionFoto":"2983e35514042ae952a85645b1ada56c922ed1f7d5e1cf751d5e98d07e204cfb"},{"referencia":"J079","nombre":"Dominó 6","categoria":"Dominó","versionFoto":"cb3499917006858bab8a399dae257bb221d682089447c9e7a887df566a077c4e"},{"referencia":"J033","nombre":"Domino Puzzle Animals","categoria":"Dominó","versionFoto":"c5bcd6aeb2a9418a12b33fdedccc3542d429cb916d5b36f57d22f1602777e99d"},{"referencia":"J064","nombre":"Donde las Papas Queman","categoria":"Estrategia","versionFoto":"dbebfe498370980effdcdbf575999e232387533d3409f65fe8d8acc4253fa6b0"},{"referencia":"J031","nombre":"El Monstruo de Colores - Edición de viaje","categoria":"Emociones","versionFoto":"915c622308ebc2161a04aa15e74b8095d2d08fd6e75939fda46c35c9da37915c"},{"referencia":"J051","nombre":"Exploding Kittens El Bien Contra el Mal","categoria":"Cartas","versionFoto":"ed063bc3d8fa65777a903b2e90a5c55e7b119f8bce38e68e8cdcd565886af082"},{"referencia":"J006","nombre":"Exploding Kittens the Board Game - Super Fan Edition","categoria":"Estrategia","versionFoto":"136904a2d055c869da3bbb89bae0a7469b41c8312c1bde9776f458d41926580c"},{"referencia":"J022","nombre":"Fantasma Blitz","categoria":"Rapidez visual","versionFoto":"5062942888eb01ca36f4d1fdb7393c06a92033ef47cee8e2f530358da2b7f9eb"},{"referencia":"J028","nombre":"Fast Food Fear","categoria":"Cooperativo","versionFoto":"ac1f98e4b4f692695668a3cc55c21eb15c4da6ccc64fee54e3b1e23f0b3aa4f3"},{"referencia":"J029","nombre":"Halli Galli","categoria":"Rapidez visual","versionFoto":"2096374ffcc00b028bb6a59da8a86744eccafd1a86fe303df108bdb919eebbb9"},{"referencia":"J017","nombre":"Jaipur","categoria":"Estrategia","versionFoto":"ea06654243f4ea49b74aca70a04a4562113408333071b3d52678c951acbc31ac"},{"referencia":"J045","nombre":"Jenga","categoria":"Habilidad","versionFoto":"2a40c4a29a4da475b6a5872d654d9379f2bb996f384326a0aa3c44dd5dbcddc1"},{"referencia":"J025","nombre":"Jungle Speed ECO","categoria":"Rapidez visual","versionFoto":"e0f946a66236b63967e0c5fcde0a7982db97834c4732868f6ef13298ec4cce57"},{"referencia":"J015","nombre":"Just One Refresh","categoria":"Cooperativo","versionFoto":"885a930e4940732c8b33a22fbe50819a2874614c977702b054c4ebe7f363da50"},{"referencia":"J019","nombre":"King of Tokyo Origins","categoria":"Dados","versionFoto":"7c0b377827fe5ac0f1677a348a257058e0de7517da7c7724f7a01b57dc31c27b"},{"referencia":"J001","nombre":"Kingdomino 2da Edición","categoria":"Estrategia","versionFoto":"40d9d2955ec95e829be23b577d9080d5b867714c22418d0b016b7af55462577f"},{"referencia":"J060","nombre":"Kittin","categoria":"Habilidad","versionFoto":"40d54203e4dd9dba58b74c08944173c2e3a31a4b8255e39bd64b91f2fc4afe89"},{"referencia":"J042","nombre":"La Banda de Condorito","categoria":"Cartas","versionFoto":"926518167a9c0cc0b96d2dbc113cbe84f083703687fc2f1ad42e81916d9087c0"},{"referencia":"J027","nombre":"La Noche de Gansferatu","categoria":"Fiesta","versionFoto":"5101b87a7d98f426d79135cda3ee9b2c1ec300017db244ccd6498f739e02a8b1"},{"referencia":"J061","nombre":"LEO","categoria":"Cooperativo","versionFoto":"eb9d9317b26e8aaad6f4851b2e599fa9ad01de0fbd45bb9aea34ef2f7e8097fe"},{"referencia":"J078","nombre":"Logic!","categoria":"Lógica","versionFoto":"1ec794cc11fd9e303aba5763e4fb2f4a5ffea13a783c56729c338512906622d5"},{"referencia":"J024","nombre":"Mantis","categoria":"Cartas","versionFoto":"2bd20afd484304938214e7329c126ac042bf83253d00a713a24cc891d79bb7cb"},{"referencia":"J005","nombre":"Match Madness","categoria":"Rapidez visual","versionFoto":"954d2bfcd7b30f9418eec126c79c548fda53f909b0901efc13e8791e6f1ae141"},{"referencia":"J057","nombre":"Memorice Emociones","categoria":"Memoria","versionFoto":"9e3ddb577e5d7ba0092c04bd57756f77259dc300f2ead1abcb6cbcae6a4d8b9e"},{"referencia":"J034","nombre":"Mi Primer Puzzle Montessori - La Granja","categoria":"Puzle","versionFoto":"bb3321474c035fecfc519b51a983e37dc2ac0cd963d3ca59373d6f4264fed380"},{"referencia":"J063","nombre":"MicroMacro: Crime City","categoria":"Cooperativo","versionFoto":"b533d4ab785251c43b474acce45da2cb9285d53812c8ac93a9d7d4b912957441"},{"referencia":"J010","nombre":"Onirim","categoria":"Cooperativo","versionFoto":"54a627450f931b2a749b1041335255c16404289e974e9b7e5b5cac0a45b7ef74"},{"referencia":"J002","nombre":"Polilla Tramposa","categoria":"Cartas","versionFoto":"09a4ff45da9f42392944d11e4a48606f6af1aba7915a1cb9db1f005f43737b68"},{"referencia":"J036","nombre":"Puzzle 1000 Pcs - Escenas Cotidianas de Titirilquen","categoria":"Puzle","versionFoto":"6a1d959eca3370dd24c185f3c51e079e4731c4c4d229d865789ac81c1520a66d"},{"referencia":"J038","nombre":"Puzzle de Piso Tierra de los Dinosaurios 48 Piezas","categoria":"Puzle","versionFoto":"aa4bb0b499e0a95cc88c08761043d94bd83d75427111845a56698d9a63d35ffa"},{"referencia":"J058","nombre":"Puzzle Origen de las Cosas","categoria":"Puzle","versionFoto":"525656ec9f57a8eb8351b577c4c6ba585288f24ac03c1c234fd30320218dc1d5"},{"referencia":"J040","nombre":"Puzzle Trefl - Vehicles and Jobs","categoria":"Puzle","versionFoto":"a286b8b9f1b8d95a1c858aaf7b194ed75405f53f32c78d3992104e2fc79afe28"},{"referencia":"J039","nombre":"Puzzle Trefl 15 Pcs - Dinosaurs","categoria":"Puzle","versionFoto":"04a8759cf873c5d919eb19c05b42aa50dc764808e4c8d067b147dc380cdf768b"},{"referencia":"J055","nombre":"Puzzle Trefl 15 Pcs - Lovely Babies","categoria":"Puzle","versionFoto":"5bf800772ea345258a19f16d66dbd87147cbe3533083516cfc5e9438bbb58926"},{"referencia":"J023","nombre":"Qwixx","categoria":"Dados","versionFoto":"1577ff7e61958fc536d6f5702526bb3c93dc4b5744ecf635c309275bce6c8be3"},{"referencia":"J011","nombre":"Sushi Go Party","categoria":"Estrategia","versionFoto":"c0cd7889256c4028635711adfcc22666062ad6b1848010c3666aabcee4c677ea"},{"referencia":"J076","nombre":"Sushi Go!","categoria":"Estrategia","versionFoto":"6c91ec667f9028dc0b9d73b949a4a165d437fccb23d7b92d7426a3052e8b6032"},{"referencia":"J052","nombre":"Taco Gatito Pizza","categoria":"Rapidez visual","versionFoto":"7ff59ada3dd6f8ee4d78042e3660ee94201430796e1d9bed969869bc6a5aba55"},{"referencia":"J077","nombre":"Taco Gato Cabra Queso Pizza","categoria":"Rapidez visual","versionFoto":"43ad309de785578284308c357b1466c8c6fa8ce855bd71a680c89d3a5ea9e0c5"},{"referencia":"J049","nombre":"Taco Gorro Torta Caja Pizza","categoria":"Rapidez visual","versionFoto":"30cebdb1e21b6034de7310ffff9943ff2885ae806138d52a521079486bfbdd8d"},{"referencia":"J013","nombre":"The Game Rápido y Simple","categoria":"Cooperativo","versionFoto":"acdc7a299571c76711792664f1994e0fc3e87c304997dd8e3bb7ab4f2abd7371"},{"referencia":"J014","nombre":"Timeline Twist","categoria":"Conocimientos","versionFoto":"67a52e43ca68ef27bca68795a17dec66da6c1e1d1b663a5ac66e109f16feb432"},{"referencia":"J053","nombre":"Toma 11!","categoria":"Estrategia","versionFoto":"2503c9663585f4198998da0abcc93eb8c0f0afa287063426ceaea11b1d821a88"},{"referencia":"J030","nombre":"Tranquilidad","categoria":"Cooperativo","versionFoto":"8fa3a605b5708f0580f47b762ea0cd11074287d7f627e84bf3f53846f0475ea0"},{"referencia":"J044","nombre":"UNO","categoria":"Cartas","versionFoto":"e944eb2a9bb36ef46d646d78a6fa9302f8deed22aa7dd24bfc2a71987c1205b8"},{"referencia":"J003","nombre":"Virus","categoria":"Estrategia","versionFoto":"0e8f43a1bf8421f8b20d92d1a13c9dbc48ccdb67479e22f1ee4656ab32f3462d"},{"referencia":"J009","nombre":"Yogi 2 Edición","categoria":"Habilidad","versionFoto":"4719779773c4e4134f11ba63a7980e22c66b64424ac0e8cb2681c4e7ebf132fe"},{"referencia":"J026","nombre":"Yokai Pagoda","categoria":"Estrategia","versionFoto":"d5ba7db07aa9bee64ea6673d019da67da4b3516944644abf60bc8859719733fa"},{"referencia":"J062","nombre":"Zombie Burrito","categoria":"Fiesta","versionFoto":"69a347c8deb696f01d4b42cc8eef5b928a2d093dab05af6b57326034a4c57ae8"}],"fotos":{"J008":{"src":"fotos/J020-fb7a31c77351.webp","width":281,"height":400,"versionFoto":"f04cd05ddc76d20bcb7d5f7d9d3e5e2ce9fd1290ae8cce6fe141c3d193b30f3a"},"J018":{"src":"fotos/J030-0a4b338d0582.webp","width":401,"height":400,"versionFoto":"bea0e3c1404879eece6664e94a1331cb6b40da6e55e34c0e80bbeb3d200fa308"},"J047":{"src":"fotos/J047-10dde3084d32.webp","width":281,"height":400,"versionFoto":"2a2423e8f70ed351d77677085dba77f49008d2787995be058d9ce4db9d59e643"},"J056":{"src":"fotos/J070-1511b667195c.webp","width":400,"height":400,"versionFoto":"80f44ca61f7d9c37b5575c16ece8146faba8f3b864286367ef4b6f10a46ba5eb"},"J032":{"src":"fotos/J046-e17a7c31fb88.webp","width":400,"height":400,"versionFoto":"41cd0e05f887b6e81cb66f58edb1a98b21d4c227c1d66f276ce8798275a5ca01"},"J021":{"src":"fotos/J033-2fd2d5775a5b.webp","width":400,"height":400,"versionFoto":"5bf1cd594ec4a4f9636b668710c575d992d151ce7c5896e975ed86783915843a"},"J007":{"src":"fotos/J019-6b72a60c944a.webp","width":400,"height":400,"versionFoto":"db9a0d3c2db36f1fc94ebf1266a084cbf777bc0de3f5b512aa42acaa259797d7"},"J035":{"src":"fotos/J049-efa535e971a3.webp","width":400,"height":400,"versionFoto":"ea51f50502dce62a110b76d6a277b1a339ea0ac74fd744540a20950a1f926db1"},"J012":{"src":"fotos/J024-3a258001a45e.webp","width":284,"height":400,"versionFoto":"b28fa8dec13a714337daf367cbbe8cd9c553de9640cc07dbdab9779b56df3214"},"J043":{"src":"fotos/J057-15cc6ef584c3.webp","width":400,"height":400,"versionFoto":"d736c8d8ca6b42b5f92bb10f803438b95b22d6fbcf9e49a0082170e771b4c493"},"J016":{"src":"fotos/J028-7a6fe162424d.webp","width":400,"height":400,"versionFoto":"73bd8a5a3bf93d4c704e311262e1696b73dc3c795f7be955a9d56d48f3d28660"},"J037":{"src":"fotos/J051-2c0ce407afdf.webp","width":400,"height":400,"versionFoto":"df0219ddaa9e14f9b16bdf9fdbd78473d45d0abc921e46e250df6f23809b0f7c"},"J041":{"src":"fotos/J055-dce0b8440f36.webp","width":400,"height":400,"versionFoto":"4c706d1136657df9ef07f3d1e237db8001a3ce09e928d7fe14bb191b51dd6c0e"},"J050":{"src":"fotos/J064-0a39afce2187.webp","width":377,"height":400,"versionFoto":"e4d9e18dbfcb0673f94c7fd626a0b41372141be61c5a7d3395888810005d0c26"},"J048":{"src":"fotos/J062-eac46960e26f.webp","width":306,"height":400,"versionFoto":"29017defedbbe91677d7a1cb4276accfacbd3ea11a8774c53d8d94cf4dd47e6f"},"J054":{"src":"fotos/J068-e18aa97d6c1a.webp","width":383,"height":400,"versionFoto":"46f6587af2a1eabd298df37dbbebd3e7cc9d7434fb9e079300389af86c9f2072"},"J046":{"src":"fotos/J046-e51e896d6ce8.webp","width":310,"height":400,"versionFoto":"2983e35514042ae952a85645b1ada56c922ed1f7d5e1cf751d5e98d07e204cfb"},"J033":{"src":"fotos/J047-2b388db4a42b.webp","width":354,"height":400,"versionFoto":"c5bcd6aeb2a9418a12b33fdedccc3542d429cb916d5b36f57d22f1602777e99d"},"J031":{"src":"fotos/J045-5a33d97bbc06.webp","width":400,"height":400,"versionFoto":"915c622308ebc2161a04aa15e74b8095d2d08fd6e75939fda46c35c9da37915c"},"J051":{"src":"fotos/J065-b782d06eec66.webp","width":480,"height":340,"versionFoto":"ed063bc3d8fa65777a903b2e90a5c55e7b119f8bce38e68e8cdcd565886af082"},"J006":{"src":"fotos/J018-84de939b3a0f.webp","width":354,"height":400,"versionFoto":"136904a2d055c869da3bbb89bae0a7469b41c8312c1bde9776f458d41926580c"},"J022":{"src":"fotos/J034-5af5deb43625.webp","width":400,"height":400,"versionFoto":"5062942888eb01ca36f4d1fdb7393c06a92033ef47cee8e2f530358da2b7f9eb"},"J028":{"src":"fotos/J040-3e7131758c07.webp","width":400,"height":400,"versionFoto":"ac1f98e4b4f692695668a3cc55c21eb15c4da6ccc64fee54e3b1e23f0b3aa4f3"},"J029":{"src":"fotos/J041-731734b349e0.webp","width":400,"height":400,"versionFoto":"2096374ffcc00b028bb6a59da8a86744eccafd1a86fe303df108bdb919eebbb9"},"J017":{"src":"fotos/J029-c97bbe634ee3.webp","width":480,"height":251,"versionFoto":"ea06654243f4ea49b74aca70a04a4562113408333071b3d52678c951acbc31ac"},"J045":{"src":"fotos/J059-73eea77f1978.webp","width":400,"height":400,"versionFoto":"2a40c4a29a4da475b6a5872d654d9379f2bb996f384326a0aa3c44dd5dbcddc1"},"J025":{"src":"fotos/J037-6ee327c610db.webp","width":400,"height":400,"versionFoto":"e0f946a66236b63967e0c5fcde0a7982db97834c4732868f6ef13298ec4cce57"},"J015":{"src":"fotos/J027-9cf6c2dd9daa.webp","width":400,"height":400,"versionFoto":"885a930e4940732c8b33a22fbe50819a2874614c977702b054c4ebe7f363da50"},"J019":{"src":"fotos/J031-8af0be5d956d.webp","width":400,"height":400,"versionFoto":"7c0b377827fe5ac0f1677a348a257058e0de7517da7c7724f7a01b57dc31c27b"},"J001":{"src":"fotos/J012-8b872b84bdf7.webp","width":282,"height":400,"versionFoto":"40d9d2955ec95e829be23b577d9080d5b867714c22418d0b016b7af55462577f"},"J042":{"src":"fotos/J056-30307da66449.webp","width":356,"height":400,"versionFoto":"926518167a9c0cc0b96d2dbc113cbe84f083703687fc2f1ad42e81916d9087c0"},"J027":{"src":"fotos/J039-22091f628801.webp","width":400,"height":400,"versionFoto":"5101b87a7d98f426d79135cda3ee9b2c1ec300017db244ccd6498f739e02a8b1"},"J024":{"src":"fotos/J036-23a3bbde2684.webp","width":281,"height":400,"versionFoto":"2bd20afd484304938214e7329c126ac042bf83253d00a713a24cc891d79bb7cb"},"J005":{"src":"fotos/J016-1355493bca2c.webp","width":354,"height":400,"versionFoto":"954d2bfcd7b30f9418eec126c79c548fda53f909b0901efc13e8791e6f1ae141"},"J034":{"src":"fotos/J048-3731f3ab3b59.webp","width":354,"height":400,"versionFoto":"bb3321474c035fecfc519b51a983e37dc2ac0cd963d3ca59373d6f4264fed380"},"J010":{"src":"fotos/J022-a4d402377cf4.webp","width":400,"height":400,"versionFoto":"54a627450f931b2a749b1041335255c16404289e974e9b7e5b5cac0a45b7ef74"},"J002":{"src":"fotos/J013-0d76962648e9.webp","width":400,"height":400,"versionFoto":"09a4ff45da9f42392944d11e4a48606f6af1aba7915a1cb9db1f005f43737b68"},"J036":{"src":"fotos/J050-82a3ae421c23.webp","width":343,"height":400,"versionFoto":"6a1d959eca3370dd24c185f3c51e079e4731c4c4d229d865789ac81c1520a66d"},"J038":{"src":"fotos/J052-809cf0fa1168.webp","width":354,"height":400,"versionFoto":"aa4bb0b499e0a95cc88c08761043d94bd83d75427111845a56698d9a63d35ffa"},"J040":{"src":"fotos/J054-98384501526d.webp","width":480,"height":354,"versionFoto":"a286b8b9f1b8d95a1c858aaf7b194ed75405f53f32c78d3992104e2fc79afe28"},"J039":{"src":"fotos/J053-4d9f875b866d.webp","width":400,"height":400,"versionFoto":"04a8759cf873c5d919eb19c05b42aa50dc764808e4c8d067b147dc380cdf768b"},"J055":{"src":"fotos/J069-26c3931819f3.webp","width":400,"height":400,"versionFoto":"5bf800772ea345258a19f16d66dbd87147cbe3533083516cfc5e9438bbb58926"},"J023":{"src":"fotos/J035-4e33a1e843d3.webp","width":292,"height":400,"versionFoto":"1577ff7e61958fc536d6f5702526bb3c93dc4b5744ecf635c309275bce6c8be3"},"J011":{"src":"fotos/J023-295b75c74be3.webp","width":400,"height":400,"versionFoto":"c0cd7889256c4028635711adfcc22666062ad6b1848010c3666aabcee4c677ea"},"J052":{"src":"fotos/J066-93c40711f8de.webp","width":400,"height":400,"versionFoto":"7ff59ada3dd6f8ee4d78042e3660ee94201430796e1d9bed969869bc6a5aba55"},"J049":{"src":"fotos/J063-e5114ae31694.webp","width":400,"height":400,"versionFoto":"30cebdb1e21b6034de7310ffff9943ff2885ae806138d52a521079486bfbdd8d"},"J013":{"src":"fotos/J025-16d9cf66358e.webp","width":292,"height":400,"versionFoto":"acdc7a299571c76711792664f1994e0fc3e87c304997dd8e3bb7ab4f2abd7371"},"J014":{"src":"fotos/J026-d384c4459905.webp","width":354,"height":400,"versionFoto":"67a52e43ca68ef27bca68795a17dec66da6c1e1d1b663a5ac66e109f16feb432"},"J053":{"src":"fotos/J067-445a9b0c20ec.webp","width":303,"height":400,"versionFoto":"2503c9663585f4198998da0abcc93eb8c0f0afa287063426ceaea11b1d821a88"},"J030":{"src":"fotos/J042-614576003a44.webp","width":400,"height":400,"versionFoto":"8fa3a605b5708f0580f47b762ea0cd11074287d7f627e84bf3f53846f0475ea0"},"J044":{"src":"fotos/J058-28ece3757b29.webp","width":296,"height":400,"versionFoto":"e944eb2a9bb36ef46d646d78a6fa9302f8deed22aa7dd24bfc2a71987c1205b8"},"J003":{"src":"fotos/J014-2de7ba021b2b.webp","width":400,"height":400,"versionFoto":"0e8f43a1bf8421f8b20d92d1a13c9dbc48ccdb67479e22f1ee4656ab32f3462d"},"J009":{"src":"fotos/J021-56ed4e8e33da.webp","width":354,"height":400,"versionFoto":"4719779773c4e4134f11ba63a7980e22c66b64424ac0e8cb2681c4e7ebf132fe"},"J026":{"src":"fotos/J038-183635f9d1c4.webp","width":316,"height":400,"versionFoto":"d5ba7db07aa9bee64ea6673d019da67da4b3516944644abf60bc8859719733fa"},"J066":{"src":"fotos/J066-9f77812d590e.webp","width":244,"height":400,"versionFoto":"b5c74ee5fbb72635965f0c32eea7a5a4fb2eb403585c029502924415fec8c863"},"J004":{"src":"fotos/J004-fa04edd9e1b9.webp","width":401,"height":400,"versionFoto":"79ab3debf750c8e4acc8f8255dc7e33153e43aee958f5c9ba13c0cccd76b0292"},"J065":{"src":"fotos/J065-b38e9d3faa5c.webp","width":292,"height":400,"versionFoto":"0ffe06c4a99b13c9f04912e84565723f1198d1431c5ace50c6d18f8d8d4034d7"},"J067":{"src":"fotos/J067-add7699458b5.webp","width":400,"height":400,"versionFoto":"bc5a0246481504f624914ca9ee9f13d97188eade86463fb6ffbb3a1e5f3aab3e"},"J074":{"src":"fotos/J074-fd23f739e71d.webp","width":365,"height":400,"versionFoto":"a3e3f6e11590207ef58b30fa304ecd1c552702dc76462f7ec4456d43662f43c2"},"J071":{"src":"fotos/J071-ffd32a6a26fa.webp","width":400,"height":400,"versionFoto":"6b4fc8c7bb6a4a4694bbeadf4ccd2cf9a9a56889e96caeedfe0acc15adf2ae5b"},"J072":{"src":"fotos/J072-a3a38e4d25c0.webp","width":354,"height":400,"versionFoto":"06f6e6a3424e7ab5ece3b265739ea0a3b1097c0c174957beb8ae89548f4ba780"},"J075":{"src":"fotos/J075-0394dde9e9b4.webp","width":363,"height":400,"versionFoto":"305a22ed2da44e1c4a257630958108ac385d91f51ded1530bb642044b83ec948"},"J068":{"src":"fotos/J068-c74d8ade9824.webp","width":480,"height":318,"versionFoto":"00a164bdad719c6218745e1ccd3937fe2234ffd31c501ee2fe0c28d78b2118e3"},"J070":{"src":"fotos/J070-b53a69199d0d.webp","width":319,"height":400,"versionFoto":"bbdc2793a14af3c97cb0da89c2e7c8e9fefb8329d6e443c472d54521eb991ad7"},"J069":{"src":"fotos/J069-d5d7cd41fe32.webp","width":354,"height":400,"versionFoto":"50fc8b754faf8d7298db31541af70c373356ad43be659ffe5cf68392ab799bbc"},"J073":{"src":"fotos/J073-67805a0ed910.webp","width":361,"height":400,"versionFoto":"a6355c82e58d8d61ff665f2e21337abd2b81c85f0cd115ceadcb1bc4ef6ec303"},"J059":{"src":"fotos/J059-0047e3b3abfc.webp","width":400,"height":400,"versionFoto":"1e9dcadb24cc8a7d7b409a1315e77d4c537d2650230eec47cb01de1e08e6b2a7"},"J079":{"src":"fotos/J079-a1488768c4bb.webp","width":400,"height":400,"versionFoto":"cb3499917006858bab8a399dae257bb221d682089447c9e7a887df566a077c4e"},"J064":{"src":"fotos/J064-8467a5c09868.webp","width":281,"height":400,"versionFoto":"dbebfe498370980effdcdbf575999e232387533d3409f65fe8d8acc4253fa6b0"},"J060":{"src":"fotos/J060-5d408891d867.webp","width":400,"height":400,"versionFoto":"40d54203e4dd9dba58b74c08944173c2e3a31a4b8255e39bd64b91f2fc4afe89"},"J061":{"src":"fotos/J061-94b4fa283d00.webp","width":400,"height":400,"versionFoto":"eb9d9317b26e8aaad6f4851b2e599fa9ad01de0fbd45bb9aea34ef2f7e8097fe"},"J078":{"src":"fotos/J078-67029df464d5.webp","width":400,"height":400,"versionFoto":"1ec794cc11fd9e303aba5763e4fb2f4a5ffea13a783c56729c338512906622d5"},"J057":{"src":"fotos/J057-be7d1a3bca75.webp","width":354,"height":400,"versionFoto":"9e3ddb577e5d7ba0092c04bd57756f77259dc300f2ead1abcb6cbcae6a4d8b9e"},"J063":{"src":"fotos/J063-f3113426c8df.webp","width":400,"height":400,"versionFoto":"b533d4ab785251c43b474acce45da2cb9285d53812c8ac93a9d7d4b912957441"},"J058":{"src":"fotos/J058-d27a57026790.webp","width":354,"height":400,"versionFoto":"525656ec9f57a8eb8351b577c4c6ba585288f24ac03c1c234fd30320218dc1d5"},"J076":{"src":"fotos/J076-636ee272babd.webp","width":480,"height":323,"versionFoto":"6c91ec667f9028dc0b9d73b949a4a165d437fccb23d7b92d7426a3052e8b6032"},"J077":{"src":"fotos/J077-93c9cede5db4.webp","width":400,"height":400,"versionFoto":"43ad309de785578284308c357b1466c8c6fa8ce855bd71a680c89d3a5ea9e0c5"},"J062":{"src":"fotos/J062-7c55f00fd6d6.webp","width":400,"height":400,"versionFoto":"69a347c8deb696f01d4b42cc8eef5b928a2d093dab05af6b57326034a4c57ae8"}}}
-
+{
+  "generado": "2026-10-29T13:54:20.230Z",
+  "juegos": [
+    {
+      "referencia": "J008",
+      "nombre": "¡Tiburón!",
+      "categoria": "Habilidad",
+      "versionFoto": "f04cd05ddc76d20bcb7d5f7d9d3e5e2ce9fd1290ae8cce6fe141c3d193b30f3a",
+      "descripcion": "Una propuesta lúdica y emocionante donde la atención y la rapidez son clave para evitar al tiburón. Ideal para partidas breves y entretenidas. La partida plantea un reto relacionado con un tiburón que los participantes deben superar tomando decisiones en su turno."
+    },
+    {
+      "referencia": "J066",
+      "nombre": "¿Quién fue?",
+      "categoria": "Memoria",
+      "versionFoto": "b5c74ee5fbb72635965f0c32eea7a5a4fb2eb403585c029502924415fec8c863",
+      "descripcion": "¡Alguien ha dejado un desastre y todas las mascotas son sospechosas! Los jugadores intentarán demostrar que su mascota es inocente, recordando qué animales han aparecido y señalando rápidamente a otros posibles responsables. Un juego lleno de humor que desafía la memoria, la atención y los reflejos.\n\nJugadores: 3–6.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J018",
+      "nombre": "7 Wonders Duel",
+      "categoria": "Estrategia",
+      "versionFoto": "bea0e3c1404879eece6664e94a1331cb6b40da6e55e34c0e80bbeb3d200fa308",
+      "descripcion": "Dirige una civilización y compite por desarrollar edificios, maravillas y avances. Puedes imponerte mediante la fuerza militar, el progreso científico o los puntos, mientras cada carta elegida abre y cierra posibilidades para tu oponente.\nJugadores: 2.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J047",
+      "nombre": "Ahorcado - Magnético",
+      "categoria": "Palabras",
+      "versionFoto": "2a2423e8f70ed351d77677085dba77f49008d2787995be058d9ce4db9d59e643",
+      "descripcion": "Descubre una palabra oculta proponiendo letras y aprovechando las pistas que aparecen. Cada acierto ayuda a completarla y cada error acerca el final del intento, combinando vocabulario y deducción."
+    },
+    {
+      "referencia": "J004",
+      "nombre": "Ajedrez - Dama Magnético",
+      "categoria": "Estrategia",
+      "versionFoto": "79ab3debf750c8e4acc8f8255dc7e33153e43aee958f5c9ba13c0cccd76b0292",
+      "descripcion": "Un tablero portátil para elegir entre dos clásicos de estrategia. En ajedrez buscas dejar al rey rival sin salida; en damas intentas capturar o bloquear sus fichas, anticipando los movimientos del oponente.\nJugadores: 2."
+    },
+    {
+      "referencia": "J065",
+      "nombre": "Alto Voltaje",
+      "categoria": "Lógica",
+      "versionFoto": "0ffe06c4a99b13c9f04912e84565723f1198d1431c5ace50c6d18f8d8d4034d7",
+      "descripcion": "¡Las matemáticas nunca habían sido tan rápidas! En Alto Voltaje, los participantes compiten simultáneamente por resolver pequeñas sumas y restas para encontrar la carta correcta y descartarse antes que los demás. Una experiencia intensa y entretenida que fortalece el cálculo mental, la atención y la agilidad de pensamiento.\n\nJugadores: 2–4.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J056",
+      "nombre": "APLI: Puzzle Casita ABC",
+      "categoria": "Puzle",
+      "versionFoto": "80f44ca61f7d9c37b5575c16ece8146faba8f3b864286367ef4b6f10a46ba5eb",
+      "descripcion": "Construye palabras y nombres uniendo piezas con letras para formar pequeñas construcciones. Las combinaciones permiten explorar el abecedario y probar palabras nuevas mientras cambia la forma de la casita."
+    },
+    {
+      "referencia": "J032",
+      "nombre": "APLI: Puzzle Circular Sistema Solar 48 Piezas",
+      "categoria": "Puzle",
+      "versionFoto": "41cd0e05f887b6e81cb66f58edb1a98b21d4c227c1d66f276ce8798275a5ca01",
+      "descripcion": "Arma una imagen circular del sistema solar uniendo sus 48 piezas. Los planetas, los colores y las formas sirven de pistas para reconstruir la escena y explorar sus detalles."
+    },
+    {
+      "referencia": "J021",
+      "nombre": "Bandido Ed. Fractal",
+      "categoria": "Cooperativo",
+      "versionFoto": "5bf1cd594ec4a4f9636b668710c575d992d151ce7c5896e975ed86783915843a",
+      "descripcion": "Colaboren para impedir que un bandido escape por una red de túneles. Cada carta añade un tramo o ayuda a cerrar una salida, y el equipo debe encontrar la forma de bloquear todos los caminos antes de quedarse sin cartas.\nJugadores: 1–4.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J007",
+      "nombre": "Blocky",
+      "categoria": "Construcción",
+      "versionFoto": "db9a0d3c2db36f1fc94ebf1266a084cbf777bc0de3f5b512aa42acaa259797d7",
+      "descripcion": "Un juego para construir, equilibrar y resolver retos con atención y precisión. Invita a experimentar, crear y poner a prueba la motricidad fina. Consiste en resolver desafíos mediante la colocación o combinación de piezas siguiendo patrones y restricciones."
+    },
+    {
+      "referencia": "J035",
+      "nombre": "Brain Trainer Puzzle",
+      "categoria": "Lógica",
+      "versionFoto": "ea51f50502dce62a110b76d6a277b1a339ea0ac74fd744540a20950a1f926db1",
+      "descripcion": "Un desafío de lógica y observación pensado para ejercitar la mente mientras se juega. Ideal para estimular concentración y resolución de problemas. Propone resolver pequeños desafíos de lógica acomodando piezas hasta encontrar la solución correcta. Jugadores: 1+. Duración aproximada: 15-30 minutos."
+    },
+    {
+      "referencia": "J012",
+      "nombre": "Chao Pescao!",
+      "categoria": "Fiesta",
+      "versionFoto": "b28fa8dec13a714337daf367cbbe8cd9c553de9640cc07dbdab9779b56df3214",
+      "descripcion": "Una persona intenta descubrir las respuestas inventadas a una pregunta insólita, mientras los demás procuran resultar convincentes. La gracia está en detectar las mentiras y decidir cuándo dejar de arriesgar antes de señalar la respuesta verdadera.\nJugadores: 4–10.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J043",
+      "nombre": "Chromino Smallbox",
+      "categoria": "Estrategia",
+      "versionFoto": "d736c8d8ca6b42b5f92bb10f803438b95b22d6fbcf9e49a0082170e771b4c493",
+      "descripcion": "Una variación del dominó en la que importan los colores en lugar de los números. Coloca tus fichas buscando coincidencias con las que ya están sobre la mesa y trata de quedarte sin ninguna antes que los demás.\nJugadores: 1–8.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J016",
+      "nombre": "Ciudad de Puntos",
+      "categoria": "Estrategia",
+      "versionFoto": "73bd8a5a3bf93d4c704e311262e1696b73dc3c795f7be955a9d56d48f3d28660",
+      "descripcion": "Haz crecer tu ciudad reuniendo recursos y construyendo edificios. Cada construcción puede facilitar las siguientes o aportar puntos, y el reto es combinar tus elecciones para crear la ciudad más valiosa.\nJugadores: 1–4.\nDuración aproximada: 15–30 minutos."
+    },
+    {
+      "referencia": "J037",
+      "nombre": "Clementoni Mi Primer Puzzle - Vida Marina",
+      "categoria": "Puzle",
+      "versionFoto": "df0219ddaa9e14f9b16bdf9fdbd78473d45d0abc921e46e250df6f23809b0f7c",
+      "descripcion": "Descubre animales y escenas del mar mientras reconstruyes las ilustraciones. Observa los colores y los contornos para encontrar las piezas que encajan y completar cada imagen."
+    },
+    {
+      "referencia": "J041",
+      "nombre": "Concept Kids",
+      "categoria": "Cooperativo",
+      "versionFoto": "4c706d1136657df9ef07f3d1e237db8001a3ce09e928d7fe14bb191b51dd6c0e",
+      "descripcion": "Ayuden al grupo a adivinar animales mediante pistas visuales sobre un tablero. Los iconos permiten indicar características como su aspecto o su hábitat sin decir el nombre, combinando observación y comunicación.\nJugadores: 2–12.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J050",
+      "nombre": "Desmaius!",
+      "categoria": "Fiesta",
+      "versionFoto": "e4d9e18dbfcb0673f94c7fd626a0b41372141be61c5a7d3395888810005d0c26",
+      "descripcion": "Entra en un duelo de magia inspirado en Hogwarts y compite por conseguir recompensas para tu casa. Cada ronda mezcla hechizos, faroles y decisiones sobre atacar o protegerte, intentando anticipar las intenciones de los demás.\nJugadores: 4–8.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J048",
+      "nombre": "Dino Fiesta",
+      "categoria": "Rapidez visual",
+      "versionFoto": "29017defedbbe91677d7a1cb4276accfacbd3ea11a8774c53d8d94cf4dd47e6f",
+      "descripcion": "Forma una pirámide de dinosaurios jugando cartas que coincidan con los colores que las sostienen. El objetivo es desprenderte de tu mano y evitar que los dinosaurios que te queden se conviertan en puntos en contra.\nJugadores: 2–6.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J067",
+      "nombre": "Dixit",
+      "categoria": "Creatividad",
+      "versionFoto": "bc5a0246481504f624914ca9ee9f13d97188eade86463fb6ffbb3a1e5f3aab3e",
+      "descripcion": "¡Un juego donde la imaginación no tiene límites! Los participantes observan hermosas cartas ilustradas y crean pistas mediante palabras, frases o pequeñas historias. Los demás deben interpretar esas pistas y descubrir cuál era la imagen elegida por el narrador. Una experiencia que estimula la creatividad, la expresión oral y la interpretación.\n\nJugadores: 3–8.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J074",
+      "nombre": "Dixit Anniversary - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "a3e3f6e11590207ef58b30fa304ecd1c552702dc76462f7ec4456d43662f43c2",
+      "descripcion": "¡Una celebración de la imaginación! Dixit Anniversary reúne el talento de ilustradores de distintas expansiones para crear un universo lleno de fantasía, cuentos y personajes extraordinarios. Las nuevas imágenes invitan a compartir pistas, historias y asociaciones creativas.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J071",
+      "nombre": "Dixit Journey - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "6b4fc8c7bb6a4a4694bbeadf4ccd2cf9a9a56889e96caeedfe0acc15adf2ae5b",
+      "descripcion": "¡Emprende un viaje lleno de imaginación y descubrimientos! Dixit Journey presenta nuevas imágenes misteriosas y encantadoras que inspiran relatos, asociaciones y pistas sorprendentes. Los jugadores deben interpretar las ideas de los demás para descubrir la carta elegida.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J072",
+      "nombre": "Dixit Memories - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "06f6e6a3424e7ab5ece3b265739ea0a3b1097c0c174957beb8ae89548f4ba780",
+      "descripcion": "¡Un recorrido por los recuerdos y la magia de la infancia! Dixit Memories presenta ilustraciones luminosas y fantásticas que despiertan recuerdos, emociones e historias. Los participantes transforman cada imagen en una pista y ponen a prueba su imaginación para comprender las asociaciones de los demás.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J075",
+      "nombre": "Dixit Mirrors - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "305a22ed2da44e1c4a257630958108ac385d91f51ded1530bb642044b83ec948",
+      "descripcion": "¡Mira el mundo desde perspectivas sorprendentes! Dixit Mirrors presenta ilustraciones originales que reflejan situaciones, personajes y emociones de maneras inesperadas. Los jugadores crean pistas y descubren cómo una misma imagen puede provocar interpretaciones muy diferentes.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J068",
+      "nombre": "Dixit Odyssey",
+      "categoria": "Creatividad",
+      "versionFoto": "00a164bdad719c6218745e1ccd3937fe2234ffd31c501ee2fe0c28d78b2118e3",
+      "descripcion": "¡Continúa explorando el maravilloso universo de Dixit! Los jugadores crean pistas originales a partir de imágenes llenas de fantasía, mientras los demás intentan identificar la carta correcta entre distintas interpretaciones. Esta versión permite reunir grupos más numerosos y disfrutar nuevas posibilidades de narración, imaginación y convivencia.\n\nJugadores: 3–12.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J070",
+      "nombre": "Dixit Origins - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "bbdc2793a14af3c97cb0da89c2e7c8e9fefb8329d6e443c472d54521eb991ad7",
+      "descripcion": "¡Descubre los orígenes de nuevos mundos fantásticos! Esta expansión incorpora imágenes evocadoras que invitan a crear historias, relacionar ideas y expresar emociones mediante pistas imaginativas. Cada ilustración abre múltiples posibilidades de interpretación.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J069",
+      "nombre": "Dixit Quest - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "50fc8b754faf8d7298db31541af70c373356ad43be659ffe5cf68392ab799bbc",
+      "descripcion": "¡Un viaje hacia mundos donde todo parece posible! Dixit Quest incorpora nuevas ilustraciones llenas de fantasía, personajes y escenarios sorprendentes. Los participantes utilizan estas imágenes para crear pistas, compartir interpretaciones y descubrir historias diferentes en cada partida. \n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J073",
+      "nombre": "Dixit Revelations - Expansión",
+      "categoria": "Creatividad",
+      "versionFoto": "a6355c82e58d8d61ff665f2e21337abd2b81c85f0cd115ceadcb1bc4ef6ec303",
+      "descripcion": "¡Déjate sorprender por un universo de imágenes mágicas y enigmáticas! Dixit Revelations incorpora ilustraciones llenas de detalles y significados ocultos que invitan a imaginar, interpretar y contar historias. Cada carta puede despertar ideas completamente distintas entre los participantes.\n\nRequiere Dixit u Odyssey para jugar."
+    },
+    {
+      "referencia": "J059",
+      "nombre": "Dobble",
+      "categoria": "Rapidez visual",
+      "versionFoto": "1e9dcadb24cc8a7d7b409a1315e77d4c537d2650230eec47cb01de1e08e6b2a7",
+      "descripcion": "¡Pon a prueba tu vista y tus reflejos! Dobble es un entretenido juego en el que todos los participantes observan cartas llenas de símbolos y compiten por encontrar la única imagen que se repite entre dos cartas. Sus diferentes modalidades mantienen la diversión y desafían la atención, concentración y velocidad de reacción.\n\nJugadores: 2–8. Duración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J054",
+      "nombre": "Dobble 31 Minutos",
+      "categoria": "Rapidez visual",
+      "versionFoto": "46f6587af2a1eabd298df37dbbebd3e7cc9d7434fb9e079300389af86c9f2072",
+      "descripcion": "Encuentra el símbolo que comparten dos cartas antes que los demás. Los personajes y objetos de 31 Minutos protagonizan este desafío de observación, en el que cada nueva pareja ofrece una coincidencia distinta que descubrir.\nJugadores: 2–8.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J046",
+      "nombre": "Dominó - Magnético",
+      "categoria": "Dominó",
+      "versionFoto": "2983e35514042ae952a85645b1ada56c922ed1f7d5e1cf751d5e98d07e204cfb",
+      "descripcion": "Construye una cadena de fichas haciendo coincidir los puntos de sus extremos. El reto consiste en aprovechar las opciones de tu mano, anticipar las del resto y tratar de quedarte sin fichas."
+    },
+    {
+      "referencia": "J079",
+      "nombre": "Dominó 6",
+      "categoria": "Dominó",
+      "versionFoto": "cb3499917006858bab8a399dae257bb221d682089447c9e7a887df566a077c4e",
+      "descripcion": "¡Un clásico que nunca pasa de moda! Dominó 6 es un entretenido juego de asociación y estrategia en el que los participantes deben conectar fichas haciendo coincidir los números o cantidades de sus extremos. El objetivo es quedarse sin fichas antes que los demás, observando las jugadas y anticipando los movimientos de los rivales. Sus puntos de colores facilitan el reconocimiento visual y favorecen el conteo, la atención y el pensamiento lógico.\n\nJugadores: 2–4.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J033",
+      "nombre": "Domino Puzzle Animals",
+      "categoria": "Dominó",
+      "versionFoto": "c5bcd6aeb2a9418a12b33fdedccc3542d429cb916d5b36f57d22f1602777e99d",
+      "descripcion": "Relaciona las piezas ilustradas buscando las correspondencias entre los animales. Una actividad de observación y asociación visual en la que cada unión ayuda a completar el conjunto."
+    },
+    {
+      "referencia": "J064",
+      "nombre": "Donde las Papas Queman",
+      "categoria": "Estrategia",
+      "versionFoto": "dbebfe498370980effdcdbf575999e232387533d3409f65fe8d8acc4253fa6b0",
+      "descripcion": "¡Prepárate para una competencia donde las papas son el gran tesoro! Los jugadores deberán conseguir Papas de Oro mientras utilizan cartas para atacar, defenderse e intercambiar recursos. Una divertida combinación de estrategia, sorpresas y decisiones que pueden cambiar el resultado de la partida en cualquier momento.\n\nJugadores: 2–6.\nDuración aproximada: 20–30 minutos."
+    },
+    {
+      "referencia": "J031",
+      "nombre": "El Monstruo de Colores - Edición de viaje",
+      "categoria": "Emociones",
+      "versionFoto": "915c622308ebc2161a04aa15e74b8095d2d08fd6e75939fda46c35c9da37915c",
+      "descripcion": "Ayuden al Monstruo de Colores a reconocer y ordenar sus emociones. El recorrido invita a compartir recuerdos y experiencias relacionados con cada emoción y a recordar el lugar de los frascos para resolver juntos el enredo.\nJugadores: 2–5.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J051",
+      "nombre": "Exploding Kittens El Bien Contra el Mal",
+      "categoria": "Cartas",
+      "versionFoto": "ed063bc3d8fa65777a903b2e90a5c55e7b119f8bce38e68e8cdcd565886af082",
+      "descripcion": "Evita las cartas explosivas y usa acciones para poner las probabilidades de tu lado. Esta edición enfrenta al bien y al mal con duelos por una carta poderosa, añadiendo nuevas decisiones a la carrera por ser el último gato en pie.\nJugadores: 2–5.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J006",
+      "nombre": "Exploding Kittens the Board Game - Super Fan Edition",
+      "categoria": "Estrategia",
+      "versionFoto": "136904a2d055c869da3bbb89bae0a7469b41c8312c1bde9776f458d41926580c",
+      "descripcion": "Participa en una carrera de gatos impredecible: juega cartas para avanzar, tender trampas y evitar las explosiones. El tablero puede darse vuelta y transformar el camino, cambiando las oportunidades de llegar primero a la meta.\nJugadores: 2–6.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J022",
+      "nombre": "Fantasma Blitz",
+      "categoria": "Rapidez visual",
+      "versionFoto": "5062942888eb01ca36f4d1fdb7393c06a92033ef47cee8e2f530358da2b7f9eb",
+      "descripcion": "Observa una carta y atrapa el objeto correcto antes que los demás. A veces debes encontrar el que coincide en forma y color; otras, el que no aparece representado, poniendo a prueba tanto los reflejos como la atención.\nJugadores: 2–8.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J028",
+      "nombre": "Fast Food Fear",
+      "categoria": "Cooperativo",
+      "versionFoto": "ac1f98e4b4f692695668a3cc55c21eb15c4da6ccc64fee54e3b1e23f0b3aa4f3",
+      "descripcion": "Formen el equipo de un restaurante que atiende a monstruos hambrientos. Combinen las cartas necesarias para completar sus pedidos antes de que se agote el tiempo, coordinándose en medio de una cocina cada vez más agitada.\nJugadores: 3–6.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J029",
+      "nombre": "Halli Galli",
+      "categoria": "Rapidez visual",
+      "versionFoto": "2096374ffcc00b028bb6a59da8a86744eccafd1a86fe303df108bdb919eebbb9",
+      "descripcion": "Descubran cartas de frutas y mantengan la cuenta de lo que aparece sobre la mesa. Cuando hay exactamente cinco frutas del mismo tipo, la carrera por tocar la campana decide quién se lleva las cartas.\nJugadores: 2–6.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J017",
+      "nombre": "Jaipur",
+      "categoria": "Estrategia",
+      "versionFoto": "ea06654243f4ea49b74aca70a04a4562113408333071b3d52678c951acbc31ac",
+      "descripcion": "Conviértete en el comerciante más próspero de Jaipur comprando, intercambiando y vendiendo mercancías. Tendrás que decidir entre vender pronto o reunir un lote mayor, mientras tu rival compite por las mejores oportunidades del mercado.\nJugadores: 2.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J045",
+      "nombre": "Jenga",
+      "categoria": "Habilidad",
+      "versionFoto": "2a40c4a29a4da475b6a5872d654d9379f2bb996f384326a0aa3c44dd5dbcddc1",
+      "descripcion": "Extrae un bloque de la torre y colócalo arriba sin derribar la estructura. A medida que crece, encontrar una pieza que pueda moverse exige más pulso y observación, hasta que la torre pierde el equilibrio.\nJugadores: 1 o más."
+    },
+    {
+      "referencia": "J025",
+      "nombre": "Jungle Speed ECO",
+      "categoria": "Rapidez visual",
+      "versionFoto": "e0f946a66236b63967e0c5fcde0a7982db97834c4732868f6ef13298ec4cce57",
+      "descripcion": "Revela cartas y mantente atento a los símbolos que aparecen sobre la mesa. Cuando dos coinciden, comienza la carrera por atrapar el tótem: el objetivo es deshacerte de tus cartas sin caer en las trampas de los dibujos parecidos.\nJugadores: 2–10.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J015",
+      "nombre": "Just One Refresh",
+      "categoria": "Cooperativo",
+      "versionFoto": "885a930e4940732c8b33a22fbe50819a2874614c977702b054c4ebe7f363da50",
+      "descripcion": "Ayuden a una persona a adivinar una palabra escribiendo pistas de una sola palabra. Las pistas repetidas se eliminan, así que el desafío es encontrar una asociación clara y original que el resto del equipo no haya elegido.\nJugadores: 3–7.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J019",
+      "nombre": "King of Tokyo Origins",
+      "categoria": "Dados",
+      "versionFoto": "7c0b377827fe5ac0f1677a348a257058e0de7517da7c7724f7a01b57dc31c27b",
+      "descripcion": "Conviértete en un monstruo gigante que lucha por dominar Tokio. Los dados permiten atacar, curarte, reunir energía o ganar puntos; tendrás que equilibrar el riesgo de permanecer en la ciudad con la posibilidad de superar a tus rivales.\nJugadores: 2–4.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J001",
+      "nombre": "Kingdomino 2da Edición",
+      "categoria": "Estrategia",
+      "versionFoto": "40d9d2955ec95e829be23b577d9080d5b867714c22418d0b016b7af55462577f",
+      "descripcion": "Construye un pequeño reino uniendo terrenos de bosques, lagos y campos. El reto está en elegir las losetas que mejor encajan y combinar territorios y coronas para conseguir más puntos.\nJugadores: 2–4.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J060",
+      "nombre": "Kittin",
+      "categoria": "Habilidad",
+      "versionFoto": "40d54203e4dd9dba58b74c08944173c2e3a31a4b8255e39bd64b91f2fc4afe89",
+      "descripcion": "¡Los gatitos quieren formar una torre! En este divertido juego de destreza, los participantes compiten por apilar pequeñas figuras de gatos siguiendo los modelos que aparecen en las cartas. Gana quien reproduzca las construcciones más rápidamente, combinando observación, coordinación y precisión.\n\nJugadores: 2–8.\nDuración aproximada: 3–15 minutos."
+    },
+    {
+      "referencia": "J042",
+      "nombre": "La Banda de Condorito",
+      "categoria": "Cartas",
+      "versionFoto": "926518167a9c0cc0b96d2dbc113cbe84f083703687fc2f1ad42e81916d9087c0",
+      "descripcion": "Ayuda a Condorito a reunir a sus amigos para formar una banda musical en Pelotillehue. Tendrás que enfrentarte a las interferencias de Doña Treme y a los cambios que provocan las cartas de los demás.\nJugadores: 3–6.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J027",
+      "nombre": "La Noche de Gansferatu",
+      "categoria": "Fiesta",
+      "versionFoto": "5101b87a7d98f426d79135cda3ee9b2c1ec300017db244ccd6498f739e02a8b1",
+      "descripcion": "Explora un castillo revelando cartas en busca de aldeanos y tesoros. Tendrás que recordar los peligros y decidir cuánto arriesgar, porque Gansferatu y sus murciegansos pueden hacerte perder lo descubierto durante el turno.\nJugadores: 2–6.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J061",
+      "nombre": "LEO",
+      "categoria": "Cooperativo",
+      "versionFoto": "eb9d9317b26e8aaad6f4851b2e599fa9ad01de0fbd45bb9aea34ef2f7e8097fe",
+      "descripcion": "¡Leo el león necesita urgentemente un corte de pelo! Pero cada vez que sale de casa se distrae conversando con los animales del bosque. Los jugadores deberán colaborar para recordar el camino y ayudarlo a llegar a la peluquería antes de que cierre. Una aventura que combina memoria, planificación y trabajo en equipo.\n\nJugadores: 2–5\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J078",
+      "nombre": "Logic!",
+      "categoria": "Lógica",
+      "versionFoto": "1ec794cc11fd9e303aba5763e4fb2f4a5ffea13a783c56729c338512906622d5",
+      "descripcion": "¡Descubre, relaciona y aprende jugando! Logic! es un entretenido juego educativo en el que los participantes deben encontrar las parejas correctas, relacionando animales con sus crías y sus alimentos favoritos. Sus piezas autocorrectivas permiten comprobar las asociaciones de manera autónoma, estimulando el razonamiento lógico, la observación, la concentración y la motricidad fina. Ideal para los más pequeños.\n\nJugadores: 1+ jugadores.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J024",
+      "nombre": "Mantis",
+      "categoria": "Cartas",
+      "versionFoto": "2bd20afd484304938214e7329c126ac042bf83253d00a713a24cc891d79bb7cb",
+      "descripcion": "Reúne cartas del mismo color y decide cuándo asegurar puntos o intentar robar a otra persona. El reverso de las cartas ofrece pistas sobre lo que puede aparecer, de modo que cada decisión mezcla intuición, riesgo y oportunidades de revancha.\nJugadores: 2–6.\nDuración aproximada: 10 minutos."
+    },
+    {
+      "referencia": "J005",
+      "nombre": "Match Madness",
+      "categoria": "Rapidez visual",
+      "versionFoto": "954d2bfcd7b30f9418eec126c79c548fda53f909b0901efc13e8791e6f1ae141",
+      "descripcion": "Reproduce con tus bloques el diseño que muestra una carta antes que los demás. Los colores y las orientaciones se parecen, pero no siempre encajan a la primera: observar y reorganizar las piezas es parte del desafío.\nJugadores: 1–4.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J057",
+      "nombre": "Memorice Emociones",
+      "categoria": "Memoria",
+      "versionFoto": "9e3ddb577e5d7ba0092c04bd57756f77259dc300f2ead1abcb6cbcae6a4d8b9e",
+      "descripcion": "Busca parejas de tarjetas relacionadas con las emociones recordando dónde está cada imagen. La actividad invita a observar las expresiones, reconocer cómo se sienten los personajes y conversar sobre lo que representan."
+    },
+    {
+      "referencia": "J034",
+      "nombre": "Mi Primer Puzzle Montessori - La Granja",
+      "categoria": "Puzle",
+      "versionFoto": "bb3321474c035fecfc519b51a983e37dc2ac0cd963d3ca59373d6f4264fed380",
+      "descripcion": "Reconstruye las imágenes de una granja observando los animales y las formas de las piezas. El desafío consiste en reconocer qué partes se corresponden y encajarlas para completar cada escena."
+    },
+    {
+      "referencia": "J063",
+      "nombre": "MicroMacro: Crime City",
+      "categoria": "Cooperativo",
+      "versionFoto": "b533d4ab785251c43b474acce45da2cb9285d53812c8ac93a9d7d4b912957441",
+      "descripcion": "¡Conviértete en detective y descubre los secretos de Crime City! Los participantes investigan misteriosos crímenes observando un enorme mapa repleto de personajes, pistas y situaciones ocultas. Deberán reconstruir los acontecimientos, descubrir qué ocurrió y resolver cada caso mediante la observación, la lógica y el trabajo en equipo.\n\nJugadores: 1–4.\nDuración aproximada: 15–45 minutos por caso."
+    },
+    {
+      "referencia": "J010",
+      "nombre": "Onirim",
+      "categoria": "Cooperativo",
+      "versionFoto": "54a627450f931b2a749b1041335255c16404289e974e9b7e5b5cac0a45b7ef74",
+      "descripcion": "Explora un laberinto de sueños y encuentra sus puertas antes de que se agoten las cartas. Tendrás que combinar colores y administrar tu mano mientras las pesadillas amenazan con deshacer parte del recorrido.\nJugadores: 1–2.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J002",
+      "nombre": "Polilla Tramposa",
+      "categoria": "Cartas",
+      "versionFoto": "09a4ff45da9f42392944d11e4a48606f6af1aba7915a1cb9db1f005f43737b68",
+      "descripcion": "Intenta quedarte sin cartas jugando con astucia y haciendo desaparecer algunas sin que te descubran. Quien tiene el papel de guardián vigila al grupo, así que cada descarte puede convertirse en una pequeña escena de disimulo.\nJugadores: 3–5.\nDuración aproximada: 15–25 minutos."
+    },
+    {
+      "referencia": "J036",
+      "nombre": "Puzzle 1000 Pcs - Escenas Cotidianas de Titirilquen",
+      "categoria": "Puzle",
+      "versionFoto": "6a1d959eca3370dd24c185f3c51e079e4731c4c4d229d865789ac81c1520a66d",
+      "descripcion": "Reconstruye una escena de Titirilquén con personajes y situaciones del mundo de 31 Minutos. Sus mil piezas invitan a buscar detalles, reconocer colores y reunir pequeñas secciones hasta completar la ilustración."
+    },
+    {
+      "referencia": "J038",
+      "nombre": "Puzzle de Piso Tierra de los Dinosaurios 48 Piezas",
+      "categoria": "Puzle",
+      "versionFoto": "aa4bb0b499e0a95cc88c08761043d94bd83d75427111845a56698d9a63d35ffa",
+      "descripcion": "Construye en el suelo una escena de dinosaurios uniendo 48 piezas. La ilustración se descubre poco a poco al relacionar las formas, los colores y los detalles del paisaje prehistórico."
+    },
+    {
+      "referencia": "J058",
+      "nombre": "Puzzle Origen de las Cosas",
+      "categoria": "Puzle",
+      "versionFoto": "525656ec9f57a8eb8351b577c4c6ba585288f24ac03c1c234fd30320218dc1d5",
+      "descripcion": "Relaciona imágenes de objetos y productos cotidianos con las imágenes de su origen. Encajar las piezas permite descubrir conexiones, comparar lo que ves y conversar sobre cómo llegan esas cosas a nuestra vida."
+    },
+    {
+      "referencia": "J040",
+      "nombre": "Puzzle Trefl - Vehicles and Jobs",
+      "categoria": "Puzle",
+      "versionFoto": "a286b8b9f1b8d95a1c858aaf7b194ed75405f53f32c78d3992104e2fc79afe28",
+      "descripcion": "Arma escenas de vehículos y oficios observando qué piezas se relacionan entre sí. A medida que completas las imágenes, puedes reconocer los transportes y conversar sobre los trabajos que representan."
+    },
+    {
+      "referencia": "J039",
+      "nombre": "Puzzle Trefl 15 Pcs - Dinosaurs",
+      "categoria": "Puzle",
+      "versionFoto": "04a8759cf873c5d919eb19c05b42aa50dc764808e4c8d067b147dc380cdf768b",
+      "descripcion": "Reúne las quince piezas para completar una imagen de dinosaurios. Las formas y los detalles de la ilustración ayudan a reconocer dónde va cada parte y a descubrir la escena completa."
+    },
+    {
+      "referencia": "J055",
+      "nombre": "Puzzle Trefl 15 Pcs - Lovely Babies",
+      "categoria": "Puzle",
+      "versionFoto": "5bf800772ea345258a19f16d66dbd87147cbe3533083516cfc5e9438bbb58926",
+      "descripcion": "Completa la ilustración uniendo sus quince piezas. Observa las formas y los detalles para reconocer qué partes se corresponden y ver cómo aparece la imagen completa."
+    },
+    {
+      "referencia": "J023",
+      "nombre": "Qwixx",
+      "categoria": "Dados",
+      "versionFoto": "1577ff7e61958fc536d6f5702526bb3c93dc4b5744ecf635c309275bce6c8be3",
+      "descripcion": "Aprovecha las tiradas de dados para marcar números en filas de colores y acumular puntos. Todos participan en cada lanzamiento, pero avanzar demasiado puede dejar números atrás y limitar las oportunidades de las siguientes rondas.\nJugadores: 2–5.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J011",
+      "nombre": "Sushi Go Party",
+      "categoria": "Estrategia",
+      "versionFoto": "c0cd7889256c4028635711adfcc22666062ad6b1848010c3666aabcee4c677ea",
+      "descripcion": "Crea un menú de sushi reuniendo las combinaciones de platos que dan más puntos. Todos eligen una carta y pasan las restantes, por lo que tendrás que decidir qué conservar y qué oportunidades dejar a los demás.\nJugadores: 2–8.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J076",
+      "nombre": "Sushi Go!",
+      "categoria": "Estrategia",
+      "versionFoto": "6c91ec667f9028dc0b9d73b949a4a165d437fccb23d7b92d7426a3052e8b6032",
+      "descripcion": "¡Prepara el mejor menú de sushi y conviértete en el maestro del restaurante! Los participantes eligen cartas de distintos platos japoneses y pasan las restantes a los demás jugadores, intentando reunir combinaciones que otorguen la mayor cantidad de puntos. Un juego rápido, colorido y entretenido que combina planificación, memoria y toma de decisiones.\n\nJugadores: 2–5\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J052",
+      "nombre": "Taco Gatito Pizza",
+      "categoria": "Rapidez visual",
+      "versionFoto": "7ff59ada3dd6f8ee4d78042e3660ee94201430796e1d9bed969869bc6a5aba55",
+      "descripcion": "Nombra un taco, un gatito o una pizza antes de revelar una carta e intenta que la palabra coincida con la imagen para seguir jugando. Si aparece un caramelo, todos compiten por reaccionar primero mientras buscan quedarse sin cartas.\nJugadores: 2–6.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J077",
+      "nombre": "Taco Gato Cabra Queso Pizza",
+      "categoria": "Rapidez visual",
+      "versionFoto": "43ad309de785578284308c357b1466c8c6fa8ce855bd71a680c89d3a5ea9e0c5",
+      "descripcion": "¡Taco, Gato, Cabra, Queso, Pizza! Un juego lleno de risas, reflejos y mucha diversión. Los participantes van revelando cartas mientras repiten estas cinco palabras en orden. Cuando la imagen de una carta coincide con la palabra pronunciada, todos deben reaccionar rápidamente y poner su mano sobre el montón central. ¡El objetivo es ser el primero en quedarse sin cartas! Un desafío entretenido que estimula la atención, concentración, coordinación y velocidad de reacción.\n\nJugadores: 2–8.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J049",
+      "nombre": "Taco Gorro Torta Caja Pizza",
+      "categoria": "Rapidez visual",
+      "versionFoto": "30cebdb1e21b6034de7310ffff9943ff2885ae806138d52a521079486bfbdd8d",
+      "descripcion": "Revela cartas mientras el grupo repite las palabras del título en orden. Cuando la palabra y la imagen coinciden, todos reaccionan para evitar llevarse el montón; las cartas especiales añaden gestos que ponen a prueba la atención.\nJugadores: 2–8.\nDuración aproximada: 10–15 minutos."
+    },
+    {
+      "referencia": "J013",
+      "nombre": "The Game Rápido y Simple",
+      "categoria": "Cooperativo",
+      "versionFoto": "acdc7a299571c76711792664f1994e0fc3e87c304997dd8e3bb7ab4f2abd7371",
+      "descripcion": "Cooperen para colocar todas las cartas en dos pilas: una crece y la otra disminuye. Los colores abren oportunidades para cambiar el rumbo, pero solo una buena coordinación permitirá que el grupo complete el desafío.\nJugadores: 2–5.\nDuración aproximada: 10 minutos."
+    },
+    {
+      "referencia": "J014",
+      "nombre": "Timeline Twist",
+      "categoria": "Conocimientos",
+      "versionFoto": "67a52e43ca68ef27bca68795a17dec66da6c1e1d1b663a5ac66e109f16feb432",
+      "descripcion": "Pongan en común lo que saben para ordenar acontecimientos en el tiempo. Cada carta plantea una duda sobre qué ocurrió antes o después, y el equipo decide cómo ubicarla para construir una línea temporal cada vez más amplia.\nJugadores: 2–8.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J053",
+      "nombre": "Toma 11!",
+      "categoria": "Estrategia",
+      "versionFoto": "2503c9663585f4198998da0abcc93eb8c0f0afa287063426ceaea11b1d821a88",
+      "descripcion": "Juega tus cartas sobre las pilas disponibles para ir vaciando la mano. Debes medir la diferencia entre los números y elegir bien dónde colocarlas, porque una jugada que supera el límite puede obligarte a recoger un montón.\nJugadores: 2–7.\nDuración aproximada: 30 minutos."
+    },
+    {
+      "referencia": "J030",
+      "nombre": "Tranquilidad",
+      "categoria": "Cooperativo",
+      "versionFoto": "8fa3a605b5708f0580f47b762ea0cd11074287d7f627e84bf3f53846f0475ea0",
+      "descripcion": "Construyan juntos un recorrido de islas colocando las cartas numeradas en orden. El desafío se desarrolla en silencio: cada persona debe interpretar lo que ocurre en la mesa y administrar sus cartas para que el equipo llegue a destino.\nJugadores: 1–5.\nDuración aproximada: 15–20 minutos."
+    },
+    {
+      "referencia": "J044",
+      "nombre": "UNO",
+      "categoria": "Cartas",
+      "versionFoto": "e944eb2a9bb36ef46d646d78a6fa9302f8deed22aa7dd24bfc2a71987c1205b8",
+      "descripcion": "Intenta quedarte sin cartas combinando colores y números con la carta visible. Las acciones especiales pueden cambiar el sentido, hacer perder un turno o alterar la mano de tus rivales, así que una partida puede dar un giro inesperado.\nJugadores: 2–10."
+    },
+    {
+      "referencia": "J003",
+      "nombre": "Virus",
+      "categoria": "Estrategia",
+      "versionFoto": "0e8f43a1bf8421f8b20d92d1a13c9dbc48ccdb67479e22f1ee4656ab32f3462d",
+      "descripcion": "Compite por reunir un cuerpo con cuatro órganos sanos de distinto color. Las cartas permiten proteger tus órganos, curarlos o poner en dificultades a los demás, de modo que una colección casi completa puede cambiar de un momento a otro.\nJugadores: 2–6.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J009",
+      "nombre": "Yogi 2 Edición",
+      "categoria": "Habilidad",
+      "versionFoto": "4719779773c4e4134f11ba63a7980e22c66b64424ac0e8cb2681c4e7ebf132fe",
+      "descripcion": "Sostén cartas y mantén posturas cada vez más difíciles mientras se acumulan nuevos desafíos. El objetivo es conservar todas las condiciones sin que una carta caiga o se rompa una postura, entre equilibrio, concentración y risas.\nJugadores: 3–10.\nDuración aproximada: 20 minutos."
+    },
+    {
+      "referencia": "J026",
+      "nombre": "Yokai Pagoda",
+      "categoria": "Estrategia",
+      "versionFoto": "d5ba7db07aa9bee64ea6673d019da67da4b3516944644abf60bc8859719733fa",
+      "descripcion": "Presenta ofrendas a los espíritus de una pagoda jugando cartas y administrando lo que conservas en la mano. El reto es terminar cada ronda con la menor penalización y elegir el momento de cerrarla para sorprender a los demás.\nJugadores: 2–5.\nDuración aproximada: 15 minutos."
+    },
+    {
+      "referencia": "J062",
+      "nombre": "Zombie Burrito",
+      "categoria": "Fiesta",
+      "versionFoto": "69a347c8deb696f01d4b42cc8eef5b928a2d093dab05af6b57326034a4c57ae8",
+      "descripcion": "¡Zombis contra supervivientes en una divertida batalla de burritos! Los jugadores forman equipos, buscan combinaciones de cartas y participan en emocionantes enfrentamientos lanzando burritos de espuma. Un juego muy dinámico que combina rapidez, coordinación, reflejos y trabajo en equipo.\n\nJugadores: 3–6\nDuración aproximada: 15 minutos."
+    }
+  ],
+  "fotos": {
+    "J008": {
+      "src": "fotos/J020-fb7a31c77351.webp",
+      "width": 281,
+      "height": 400,
+      "versionFoto": "f04cd05ddc76d20bcb7d5f7d9d3e5e2ce9fd1290ae8cce6fe141c3d193b30f3a"
+    },
+    "J018": {
+      "src": "fotos/J030-0a4b338d0582.webp",
+      "width": 401,
+      "height": 400,
+      "versionFoto": "bea0e3c1404879eece6664e94a1331cb6b40da6e55e34c0e80bbeb3d200fa308"
+    },
+    "J047": {
+      "src": "fotos/J047-10dde3084d32.webp",
+      "width": 281,
+      "height": 400,
+      "versionFoto": "2a2423e8f70ed351d77677085dba77f49008d2787995be058d9ce4db9d59e643"
+    },
+    "J056": {
+      "src": "fotos/J070-1511b667195c.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "80f44ca61f7d9c37b5575c16ece8146faba8f3b864286367ef4b6f10a46ba5eb"
+    },
+    "J032": {
+      "src": "fotos/J046-e17a7c31fb88.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "41cd0e05f887b6e81cb66f58edb1a98b21d4c227c1d66f276ce8798275a5ca01"
+    },
+    "J021": {
+      "src": "fotos/J033-2fd2d5775a5b.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "5bf1cd594ec4a4f9636b668710c575d992d151ce7c5896e975ed86783915843a"
+    },
+    "J007": {
+      "src": "fotos/J019-6b72a60c944a.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "db9a0d3c2db36f1fc94ebf1266a084cbf777bc0de3f5b512aa42acaa259797d7"
+    },
+    "J035": {
+      "src": "fotos/J049-efa535e971a3.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "ea51f50502dce62a110b76d6a277b1a339ea0ac74fd744540a20950a1f926db1"
+    },
+    "J012": {
+      "src": "fotos/J024-3a258001a45e.webp",
+      "width": 284,
+      "height": 400,
+      "versionFoto": "b28fa8dec13a714337daf367cbbe8cd9c553de9640cc07dbdab9779b56df3214"
+    },
+    "J043": {
+      "src": "fotos/J057-15cc6ef584c3.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "d736c8d8ca6b42b5f92bb10f803438b95b22d6fbcf9e49a0082170e771b4c493"
+    },
+    "J016": {
+      "src": "fotos/J028-7a6fe162424d.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "73bd8a5a3bf93d4c704e311262e1696b73dc3c795f7be955a9d56d48f3d28660"
+    },
+    "J037": {
+      "src": "fotos/J051-2c0ce407afdf.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "df0219ddaa9e14f9b16bdf9fdbd78473d45d0abc921e46e250df6f23809b0f7c"
+    },
+    "J041": {
+      "src": "fotos/J055-dce0b8440f36.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "4c706d1136657df9ef07f3d1e237db8001a3ce09e928d7fe14bb191b51dd6c0e"
+    },
+    "J050": {
+      "src": "fotos/J064-0a39afce2187.webp",
+      "width": 377,
+      "height": 400,
+      "versionFoto": "e4d9e18dbfcb0673f94c7fd626a0b41372141be61c5a7d3395888810005d0c26"
+    },
+    "J048": {
+      "src": "fotos/J062-eac46960e26f.webp",
+      "width": 306,
+      "height": 400,
+      "versionFoto": "29017defedbbe91677d7a1cb4276accfacbd3ea11a8774c53d8d94cf4dd47e6f"
+    },
+    "J054": {
+      "src": "fotos/J068-e18aa97d6c1a.webp",
+      "width": 383,
+      "height": 400,
+      "versionFoto": "46f6587af2a1eabd298df37dbbebd3e7cc9d7434fb9e079300389af86c9f2072"
+    },
+    "J046": {
+      "src": "fotos/J046-e51e896d6ce8.webp",
+      "width": 310,
+      "height": 400,
+      "versionFoto": "2983e35514042ae952a85645b1ada56c922ed1f7d5e1cf751d5e98d07e204cfb"
+    },
+    "J033": {
+      "src": "fotos/J047-2b388db4a42b.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "c5bcd6aeb2a9418a12b33fdedccc3542d429cb916d5b36f57d22f1602777e99d"
+    },
+    "J031": {
+      "src": "fotos/J045-5a33d97bbc06.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "915c622308ebc2161a04aa15e74b8095d2d08fd6e75939fda46c35c9da37915c"
+    },
+    "J051": {
+      "src": "fotos/J065-b782d06eec66.webp",
+      "width": 480,
+      "height": 340,
+      "versionFoto": "ed063bc3d8fa65777a903b2e90a5c55e7b119f8bce38e68e8cdcd565886af082"
+    },
+    "J006": {
+      "src": "fotos/J018-84de939b3a0f.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "136904a2d055c869da3bbb89bae0a7469b41c8312c1bde9776f458d41926580c"
+    },
+    "J022": {
+      "src": "fotos/J034-5af5deb43625.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "5062942888eb01ca36f4d1fdb7393c06a92033ef47cee8e2f530358da2b7f9eb"
+    },
+    "J028": {
+      "src": "fotos/J040-3e7131758c07.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "ac1f98e4b4f692695668a3cc55c21eb15c4da6ccc64fee54e3b1e23f0b3aa4f3"
+    },
+    "J029": {
+      "src": "fotos/J041-731734b349e0.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "2096374ffcc00b028bb6a59da8a86744eccafd1a86fe303df108bdb919eebbb9"
+    },
+    "J017": {
+      "src": "fotos/J029-c97bbe634ee3.webp",
+      "width": 480,
+      "height": 251,
+      "versionFoto": "ea06654243f4ea49b74aca70a04a4562113408333071b3d52678c951acbc31ac"
+    },
+    "J045": {
+      "src": "fotos/J059-73eea77f1978.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "2a40c4a29a4da475b6a5872d654d9379f2bb996f384326a0aa3c44dd5dbcddc1"
+    },
+    "J025": {
+      "src": "fotos/J037-6ee327c610db.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "e0f946a66236b63967e0c5fcde0a7982db97834c4732868f6ef13298ec4cce57"
+    },
+    "J015": {
+      "src": "fotos/J027-9cf6c2dd9daa.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "885a930e4940732c8b33a22fbe50819a2874614c977702b054c4ebe7f363da50"
+    },
+    "J019": {
+      "src": "fotos/J031-8af0be5d956d.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "7c0b377827fe5ac0f1677a348a257058e0de7517da7c7724f7a01b57dc31c27b"
+    },
+    "J001": {
+      "src": "fotos/J012-8b872b84bdf7.webp",
+      "width": 282,
+      "height": 400,
+      "versionFoto": "40d9d2955ec95e829be23b577d9080d5b867714c22418d0b016b7af55462577f"
+    },
+    "J042": {
+      "src": "fotos/J056-30307da66449.webp",
+      "width": 356,
+      "height": 400,
+      "versionFoto": "926518167a9c0cc0b96d2dbc113cbe84f083703687fc2f1ad42e81916d9087c0"
+    },
+    "J027": {
+      "src": "fotos/J039-22091f628801.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "5101b87a7d98f426d79135cda3ee9b2c1ec300017db244ccd6498f739e02a8b1"
+    },
+    "J024": {
+      "src": "fotos/J036-23a3bbde2684.webp",
+      "width": 281,
+      "height": 400,
+      "versionFoto": "2bd20afd484304938214e7329c126ac042bf83253d00a713a24cc891d79bb7cb"
+    },
+    "J005": {
+      "src": "fotos/J016-1355493bca2c.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "954d2bfcd7b30f9418eec126c79c548fda53f909b0901efc13e8791e6f1ae141"
+    },
+    "J034": {
+      "src": "fotos/J048-3731f3ab3b59.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "bb3321474c035fecfc519b51a983e37dc2ac0cd963d3ca59373d6f4264fed380"
+    },
+    "J010": {
+      "src": "fotos/J022-a4d402377cf4.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "54a627450f931b2a749b1041335255c16404289e974e9b7e5b5cac0a45b7ef74"
+    },
+    "J002": {
+      "src": "fotos/J013-0d76962648e9.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "09a4ff45da9f42392944d11e4a48606f6af1aba7915a1cb9db1f005f43737b68"
+    },
+    "J036": {
+      "src": "fotos/J050-82a3ae421c23.webp",
+      "width": 343,
+      "height": 400,
+      "versionFoto": "6a1d959eca3370dd24c185f3c51e079e4731c4c4d229d865789ac81c1520a66d"
+    },
+    "J038": {
+      "src": "fotos/J052-809cf0fa1168.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "aa4bb0b499e0a95cc88c08761043d94bd83d75427111845a56698d9a63d35ffa"
+    },
+    "J040": {
+      "src": "fotos/J054-98384501526d.webp",
+      "width": 480,
+      "height": 354,
+      "versionFoto": "a286b8b9f1b8d95a1c858aaf7b194ed75405f53f32c78d3992104e2fc79afe28"
+    },
+    "J039": {
+      "src": "fotos/J053-4d9f875b866d.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "04a8759cf873c5d919eb19c05b42aa50dc764808e4c8d067b147dc380cdf768b"
+    },
+    "J055": {
+      "src": "fotos/J069-26c3931819f3.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "5bf800772ea345258a19f16d66dbd87147cbe3533083516cfc5e9438bbb58926"
+    },
+    "J023": {
+      "src": "fotos/J035-4e33a1e843d3.webp",
+      "width": 292,
+      "height": 400,
+      "versionFoto": "1577ff7e61958fc536d6f5702526bb3c93dc4b5744ecf635c309275bce6c8be3"
+    },
+    "J011": {
+      "src": "fotos/J023-295b75c74be3.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "c0cd7889256c4028635711adfcc22666062ad6b1848010c3666aabcee4c677ea"
+    },
+    "J052": {
+      "src": "fotos/J066-93c40711f8de.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "7ff59ada3dd6f8ee4d78042e3660ee94201430796e1d9bed969869bc6a5aba55"
+    },
+    "J049": {
+      "src": "fotos/J063-e5114ae31694.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "30cebdb1e21b6034de7310ffff9943ff2885ae806138d52a521079486bfbdd8d"
+    },
+    "J013": {
+      "src": "fotos/J025-16d9cf66358e.webp",
+      "width": 292,
+      "height": 400,
+      "versionFoto": "acdc7a299571c76711792664f1994e0fc3e87c304997dd8e3bb7ab4f2abd7371"
+    },
+    "J014": {
+      "src": "fotos/J026-d384c4459905.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "67a52e43ca68ef27bca68795a17dec66da6c1e1d1b663a5ac66e109f16feb432"
+    },
+    "J053": {
+      "src": "fotos/J067-445a9b0c20ec.webp",
+      "width": 303,
+      "height": 400,
+      "versionFoto": "2503c9663585f4198998da0abcc93eb8c0f0afa287063426ceaea11b1d821a88"
+    },
+    "J030": {
+      "src": "fotos/J042-614576003a44.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "8fa3a605b5708f0580f47b762ea0cd11074287d7f627e84bf3f53846f0475ea0"
+    },
+    "J044": {
+      "src": "fotos/J058-28ece3757b29.webp",
+      "width": 296,
+      "height": 400,
+      "versionFoto": "e944eb2a9bb36ef46d646d78a6fa9302f8deed22aa7dd24bfc2a71987c1205b8"
+    },
+    "J003": {
+      "src": "fotos/J014-2de7ba021b2b.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "0e8f43a1bf8421f8b20d92d1a13c9dbc48ccdb67479e22f1ee4656ab32f3462d"
+    },
+    "J009": {
+      "src": "fotos/J021-56ed4e8e33da.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "4719779773c4e4134f11ba63a7980e22c66b64424ac0e8cb2681c4e7ebf132fe"
+    },
+    "J026": {
+      "src": "fotos/J038-183635f9d1c4.webp",
+      "width": 316,
+      "height": 400,
+      "versionFoto": "d5ba7db07aa9bee64ea6673d019da67da4b3516944644abf60bc8859719733fa"
+    },
+    "J066": {
+      "src": "fotos/J066-9f77812d590e.webp",
+      "width": 244,
+      "height": 400,
+      "versionFoto": "b5c74ee5fbb72635965f0c32eea7a5a4fb2eb403585c029502924415fec8c863"
+    },
+    "J004": {
+      "src": "fotos/J004-fa04edd9e1b9.webp",
+      "width": 401,
+      "height": 400,
+      "versionFoto": "79ab3debf750c8e4acc8f8255dc7e33153e43aee958f5c9ba13c0cccd76b0292"
+    },
+    "J065": {
+      "src": "fotos/J065-b38e9d3faa5c.webp",
+      "width": 292,
+      "height": 400,
+      "versionFoto": "0ffe06c4a99b13c9f04912e84565723f1198d1431c5ace50c6d18f8d8d4034d7"
+    },
+    "J067": {
+      "src": "fotos/J067-add7699458b5.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "bc5a0246481504f624914ca9ee9f13d97188eade86463fb6ffbb3a1e5f3aab3e"
+    },
+    "J074": {
+      "src": "fotos/J074-fd23f739e71d.webp",
+      "width": 365,
+      "height": 400,
+      "versionFoto": "a3e3f6e11590207ef58b30fa304ecd1c552702dc76462f7ec4456d43662f43c2"
+    },
+    "J071": {
+      "src": "fotos/J071-ffd32a6a26fa.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "6b4fc8c7bb6a4a4694bbeadf4ccd2cf9a9a56889e96caeedfe0acc15adf2ae5b"
+    },
+    "J072": {
+      "src": "fotos/J072-a3a38e4d25c0.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "06f6e6a3424e7ab5ece3b265739ea0a3b1097c0c174957beb8ae89548f4ba780"
+    },
+    "J075": {
+      "src": "fotos/J075-0394dde9e9b4.webp",
+      "width": 363,
+      "height": 400,
+      "versionFoto": "305a22ed2da44e1c4a257630958108ac385d91f51ded1530bb642044b83ec948"
+    },
+    "J068": {
+      "src": "fotos/J068-c74d8ade9824.webp",
+      "width": 480,
+      "height": 318,
+      "versionFoto": "00a164bdad719c6218745e1ccd3937fe2234ffd31c501ee2fe0c28d78b2118e3"
+    },
+    "J070": {
+      "src": "fotos/J070-b53a69199d0d.webp",
+      "width": 319,
+      "height": 400,
+      "versionFoto": "bbdc2793a14af3c97cb0da89c2e7c8e9fefb8329d6e443c472d54521eb991ad7"
+    },
+    "J069": {
+      "src": "fotos/J069-d5d7cd41fe32.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "50fc8b754faf8d7298db31541af70c373356ad43be659ffe5cf68392ab799bbc"
+    },
+    "J073": {
+      "src": "fotos/J073-67805a0ed910.webp",
+      "width": 361,
+      "height": 400,
+      "versionFoto": "a6355c82e58d8d61ff665f2e21337abd2b81c85f0cd115ceadcb1bc4ef6ec303"
+    },
+    "J059": {
+      "src": "fotos/J059-0047e3b3abfc.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "1e9dcadb24cc8a7d7b409a1315e77d4c537d2650230eec47cb01de1e08e6b2a7"
+    },
+    "J079": {
+      "src": "fotos/J079-a1488768c4bb.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "cb3499917006858bab8a399dae257bb221d682089447c9e7a887df566a077c4e"
+    },
+    "J064": {
+      "src": "fotos/J064-8467a5c09868.webp",
+      "width": 281,
+      "height": 400,
+      "versionFoto": "dbebfe498370980effdcdbf575999e232387533d3409f65fe8d8acc4253fa6b0"
+    },
+    "J060": {
+      "src": "fotos/J060-5d408891d867.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "40d54203e4dd9dba58b74c08944173c2e3a31a4b8255e39bd64b91f2fc4afe89"
+    },
+    "J061": {
+      "src": "fotos/J061-94b4fa283d00.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "eb9d9317b26e8aaad6f4851b2e599fa9ad01de0fbd45bb9aea34ef2f7e8097fe"
+    },
+    "J078": {
+      "src": "fotos/J078-67029df464d5.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "1ec794cc11fd9e303aba5763e4fb2f4a5ffea13a783c56729c338512906622d5"
+    },
+    "J057": {
+      "src": "fotos/J057-be7d1a3bca75.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "9e3ddb577e5d7ba0092c04bd57756f77259dc300f2ead1abcb6cbcae6a4d8b9e"
+    },
+    "J063": {
+      "src": "fotos/J063-f3113426c8df.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "b533d4ab785251c43b474acce45da2cb9285d53812c8ac93a9d7d4b912957441"
+    },
+    "J058": {
+      "src": "fotos/J058-d27a57026790.webp",
+      "width": 354,
+      "height": 400,
+      "versionFoto": "525656ec9f57a8eb8351b577c4c6ba585288f24ac03c1c234fd30320218dc1d5"
+    },
+    "J076": {
+      "src": "fotos/J076-636ee272babd.webp",
+      "width": 480,
+      "height": 323,
+      "versionFoto": "6c91ec667f9028dc0b9d73b949a4a165d437fccb23d7b92d7426a3052e8b6032"
+    },
+    "J077": {
+      "src": "fotos/J077-93c9cede5db4.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "43ad309de785578284308c357b1466c8c6fa8ce855bd71a680c89d3a5ea9e0c5"
+    },
+    "J062": {
+      "src": "fotos/J062-7c55f00fd6d6.webp",
+      "width": 400,
+      "height": 400,
+      "versionFoto": "69a347c8deb696f01d4b42cc8eef5b928a2d093dab05af6b57326034a4c57ae8"
+    }
+  }
+}

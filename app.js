@@ -13,7 +13,7 @@ let filtroPendiente,contextoCatalogo;
 let catalogoSolicitado=false;
 const fichasEnCurso=new Map();
 function estado(texto){ui('estado').textContent=texto}function mostrarReintento(valor){ui('reintentar-conexion').hidden=!valor}
-function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');ui('catalogo').hidden=true}
+function limpiarVista(){fotosCatalogo.pausar();ui('ficha').hidden=true;ui('foto').removeAttribute('src');delete ui('foto').dataset.referencia;delete ui('foto').dataset.version;ui('catalogo').hidden=true}
 function guardarUrl(params){const u=new URL(location.href);u.search=new URLSearchParams(params).toString();history.pushState(null,'',u)}
 function jsonp(params){
   return new Promise((resolve,reject)=>{
@@ -39,16 +39,16 @@ function mostrarFicha(g){
   ui('total').textContent=g.cantidadTotal;ui('disponibles').textContent=g.disponibilidad;
   ui('prestados').textContent=Number.isInteger(g.prestados)?g.prestados:'—';
   ui('nota-prestados').textContent=Number.isInteger(g.prestados)?(g.prestados===0?'No hay ejemplares prestados.':'Los préstamos incluyen la custodia prolongada.')+((g.cantidadTotal-g.disponibilidad-g.prestados)>0?' Hay otros ejemplares no disponibles por su estado.':''):'Actualiza la conexión pública para consultar cuántos están prestados.';
-  ui('foto').hidden=true;ui('sin-foto').hidden=false;ui('sin-foto').textContent='Cargando fotografía…';
+  const mismaFoto38=ui('foto').dataset.referencia===g.referencia&&ui('foto').dataset.version===g.versionFoto;if(!mismaFoto38){ui('foto').hidden=true;ui('sin-foto').hidden=false;ui('sin-foto').textContent='Cargando fotografía…';ui('foto').dataset.referencia=g.referencia;ui('foto').dataset.version=g.versionFoto;}
   ui('foto').alt='Fotografía de '+g.nombre;
   ui('ficha').hidden=false;
-  fotosCatalogo.observar(ui('ficha'),g.referencia,ui('foto'),ui('sin-foto'),g.versionFoto);
+  if(!mismaFoto38)fotosCatalogo.observar(ui('ficha'),g.referencia,ui('foto'),ui('sin-foto'),g.versionFoto);
   ui('ficha').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
 }
 function anticiparFicha(id){
   const g=catalogo.find(g=>g.referencia===id.split('-')[0]);if(!g)return;
   ui('nombre').textContent=g.nombre;ui('categoria').textContent=g.categoria||'Sin categoría';
-  ui('descripcion').textContent='Cargando descripción…';
+  ui('descripcion').textContent=typeof g.descripcion==='string'?(g.descripcion||'Descripción no registrada.'):'Consultando descripción…';
   for(const campo of ['total','disponibles','prestados'])ui(campo).textContent='…';
   ui('nota-prestados').textContent='Consultando disponibilidad actual…';
   ui('foto').alt='Fotografía de '+g.nombre;ui('foto').hidden=true;
@@ -60,25 +60,11 @@ function solicitarFicha(id){
   if(fichasEnCurso.has(id))return fichasEnCurso.get(id);
   const p=jsonp({api:'ficha',id,v:'27'}).finally(()=>fichasEnCurso.delete(id));fichasEnCurso.set(id,p);return p;
 }
-async function consultar(id){
-  clearTimeout(filtroPendiente);
-  const turno=++generacion;limpiarVista();idActual=id;
-  if(!codigoValido(id)){estado('Revisa el código de la etiqueta.');return}
-  if(!navigator.onLine){estado('Sin conexión. Conéctate para consultar disponibilidad actual.');return}
-  mostrarReintento(false);ui('actualizar-ficha').disabled=true;estado('Consultando disponibilidad…');
-  let resuelta=false;
-  prepararCatalogo().then(()=>{if(turno===generacion&&!resuelta)anticiparFicha(id)});
-  try{
-    const g=await solicitarFicha(id);resuelta=true;if(turno!==generacion)return;
-    if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
-    mostrarFicha(g);estado('Consulta realizada a las '+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'.');
-  }catch(error){resuelta=true;if(turno===generacion){ui('ficha').hidden=true;estado(error.message);mostrarReintento(true)}}
-  finally{if(turno===generacion)ui('actualizar-ficha').disabled=false}
-}
+
 function pintarCatalogo(){
   if(idActual || !catalogoCargado)return;
   const q=ui('consulta').value.trim(),categoria=ui('categoria-filtro').value;
-  const arr=filtrarCatalogo(catalogo,q,categoria);
+  const arr=filtrarCatalogo(catalogo,q,categoria).sort((a,b)=>Number(a.disponibilidad===0)-Number(b.disponibilidad===0));
   fotosCatalogo.pausar();
   ui('resultados').replaceChildren(...arr.map(g=>{
     const boton=document.createElement('button');boton.type='button';boton.className='game-card';boton.setAttribute('aria-label','Ver ficha de '+g.nombre);
@@ -87,7 +73,7 @@ function pintarCatalogo(){
     const nota=document.createElement('span');nota.className='game-card-placeholder';nota.textContent='Cargando fotografía…';media.append(imagen,nota);
     const texto=document.createElement('span');texto.className='game-card-info';
     const nombre=document.createElement('span');nombre.className='game-card-name';nombre.textContent=g.nombre;
-    const categoria=document.createElement('span');categoria.className='game-card-category';categoria.textContent=g.categoria||'Sin categoría';texto.append(nombre,categoria);
+    const categoria=document.createElement('span');categoria.className='game-card-category';categoria.textContent=g.categoria||'Sin categoría';texto.append(nombre,categoria);if(Number.isInteger(g.disponibilidad)){const disp=document.createElement('span');disp.className=g.disponibilidad===0?'disponibilidad38 sin-disponibilidad38':'disponibilidad38';disp.textContent=g.disponibilidad===0?'Sin ejemplares disponibles por el momento':g.disponibilidad+' disponible'+(g.disponibilidad===1?'':'s');texto.append(disp);}
     boton.append(media,texto);boton.addEventListener('click',()=>{contextoCatalogo={q:ui('consulta').value,cat:ui('categoria-filtro').value,y:window.scrollY};guardarUrl({id:g.referencia});consultar(g.referencia)});
     fotosCatalogo.observar(boton,g.referencia,imagen,nota,g.versionFoto);return boton;
   }));
@@ -106,11 +92,11 @@ function aplicarCatalogo(juegos){
 }
 function prepararCatalogo(){
   if(inicioCatalogo)return inicioCatalogo;
-  const guardado=leerCatalogo(almacenamiento,claveCatalogo);
+  const guardado=leerCatalogo(almacenamiento,claveCatalogo);if(guardado)fechaCatalogo38=guardado.fecha;
   inicioCatalogo=(async()=>{
     const abort=new AbortController(),timer=setTimeout(()=>abort.abort(),3000);
     try{
-      const r=await fetch('./catalogo-inicial.json?v=2.8.4',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
+      const r=await fetch('./catalogo-inicial.json?v=2.9.0',{signal:abort.signal});if(!r.ok)throw Error();const inicial=await r.json();
       if(!catalogoValido(inicial)||!inicial.fotos)throw Error();
       fotosCatalogo.miniaturas=inicial.fotos;
       aplicarCatalogo(guardado&&guardado.fecha>=Date.parse(inicial.generado)?guardado.juegos:inicial.juegos);
@@ -119,21 +105,7 @@ function prepararCatalogo(){
   })();
   return inicioCatalogo;
 }
-async function cargarCatalogo(){
-  if(cargandoCatalogo)return;cargandoCatalogo=true;
-  const turno=++cargaCatalogo;ui('refrescar-catalogo').disabled=true;
-  if(!idActual){mostrarReintento(false);if(!catalogoCargado)estado('Cargando catálogo…')}
-  try{
-    const inicial=prepararCatalogo();
-    if(!navigator.onLine){await inicial;throw Error('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad.')}
-    catalogoSolicitado=true;
-    const [r]=await Promise.all([jsonp({api:'catalogo',v:'27'}),inicial]);if(turno!==cargaCatalogo)return;
-    if(!catalogoValido(r))throw Error('No se pudo actualizar el catálogo. Vuelve a intentarlo.');
-    aplicarCatalogo(r.juegos);guardarCatalogo(almacenamiento,claveCatalogo,r.juegos);
-    if(!idActual)estado('Catálogo actualizado. '+catalogo.length+' juegos.');
-  }catch(error){if(turno===cargaCatalogo&&!idActual){estado(error.message);mostrarReintento(true)}}
-  finally{if(turno===cargaCatalogo){ui('refrescar-catalogo').disabled=false;cargandoCatalogo=false}}
-}
+
 function mostrarCatalogo(){
   clearTimeout(filtroPendiente);
   ++generacion;idActual='';mostrarReintento(false);limpiarVista();ui('catalogo').hidden=false;
@@ -153,7 +125,7 @@ ui('buscar').addEventListener('submit',event=>{
 ui('consulta').addEventListener('input',()=>{clearTimeout(filtroPendiente);filtroPendiente=setTimeout(()=>{mostrarCatalogo();const u=new URL(location.href);u.search=new URLSearchParams(parametrosFiltro()).toString();history.replaceState(null,'',u)},120)});
 ui('categoria-filtro').addEventListener('change',()=>{guardarUrl(parametrosFiltro());mostrarCatalogo()});
 ui('limpiar-filtros').addEventListener('click',()=>{ui('consulta').value='';ui('categoria-filtro').value='';categoriaPendiente='';guardarUrl({});mostrarCatalogo()});
-ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);ui('reintentar-conexion').addEventListener('click',()=>{if(idActual)consultar(idActual);else cargarCatalogo()});
+ui('refrescar-catalogo').addEventListener('click',cargarCatalogo);ui('reintentar-conexion').addEventListener('click',()=>{if(idActual)consultar(idActual,true);else cargarCatalogo()});
 function volverAlCatalogo(restablecer=false){
   clearTimeout(filtroPendiente);const anterior=!restablecer&&contextoCatalogo;
   if(restablecer)contextoCatalogo=null;
@@ -162,7 +134,7 @@ function volverAlCatalogo(restablecer=false){
   if(anterior)requestAnimationFrame(()=>window.scrollTo({top:anterior.y,behavior:'auto'}));
   else{ui('consulta').focus();ui('buscar').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
 }
-ui('actualizar-ficha').addEventListener('click',()=>{if(idActual)consultar(idActual)});
+ui('actualizar-ficha').addEventListener('click',()=>{if(idActual)consultar(idActual,true)});
 ui('volver-buscar').addEventListener('click',()=>volverAlCatalogo());
 ui('inicio-catalogo').addEventListener('click',()=>volverAlCatalogo(true));
 
@@ -182,7 +154,7 @@ function mensajeCamara(error){
 let cargaLector;
 function prepararLector(){
   if(!cargaLector)cargaLector=Promise.all(['vendor/jsQR-1.4.0.js','scanner.js'].map(src=>new Promise((ok,no)=>{
-    const script=document.createElement('script');script.src='./'+src+'?v=2.8.4';
+    const script=document.createElement('script');script.src='./'+src+'?v=2.9.0';
     const timer=setTimeout(()=>{script.remove();no(Error('DECODER_UNAVAILABLE'))},15000);
     script.onload=()=>{clearTimeout(timer);ok()};script.onerror=()=>{clearTimeout(timer);script.remove();no(Error('DECODER_UNAVAILABLE'))};document.head.append(script);
   }))).catch(error=>{cargaLector=null;throw error});
@@ -212,10 +184,10 @@ ui('escanear').addEventListener('click',abrirLector);
 ui('reintentar-camara').addEventListener('click',abrirLector);ui('cerrar-lector').addEventListener('click',cerrarLector);
 ui('lector').addEventListener('cancel',cerrarLector);ui('lector').addEventListener('close',()=>{if(scanner)scanner.stop();document.body.classList.remove('scanning')});
 window.addEventListener('pagehide',cerrarLector);
-document.addEventListener('visibilitychange',()=>{if(document.hidden)cerrarLector();else if(idActual)consultar(idActual)});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)cerrarLector()});
 window.addEventListener('popstate',leerUbicacion);
-window.addEventListener('offline',()=>{++generacion;idActual='';limpiarVista();if(catalogoCargado)pintarCatalogo();estado('Sin conexión. Puedes explorar el catálogo guardado; conéctate para consultar disponibilidad actual.')});
-window.addEventListener('online',()=>{catalogoSolicitado=false;leerUbicacion()});
+window.addEventListener('offline',()=>{const mensaje='Sin conexión. La información visible conserva la última consulta.';if(idActual)estadoFicha38(mensaje);else estado(mensaje);});
+window.addEventListener('online',()=>{const mensaje='Conexión recuperada. Pulsa Actualizar para consultar la disponibilidad actual.';if(idActual)estadoFicha38(mensaje);else estado(mensaje);});
 const modoAplicacion=matchMedia('(display-mode: standalone)');
 let appInstalada=modoAplicacion.matches||navigator.standalone===true;
 const esIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
@@ -241,7 +213,55 @@ window.addEventListener('appinstalled',()=>{appInstalada=true;instalacion=null;u
 modoAplicacion.addEventListener?.('change',event=>{appInstalada=event.matches||navigator.standalone===true;actualizarInstalacion()});
 actualizarInstalacion();
 if('serviceWorker' in navigator&&(location.protocol==='https:'||['localhost','127.0.0.1'].includes(location.hostname))){
-  navigator.serviceWorker.register('./sw.js?v=2.8.4',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
+  navigator.serviceWorker.register('./sw.js?v=2.9.0',{scope:'./',updateViaCache:'none'}).catch(()=>{console.warn('No se pudo preparar la interfaz para uso sin conexión.');});
 }
+const fichasGuardadas38=new Map();
+let catalogoVigente38=false,fechaCatalogo38=0,catalogoEnCurso38=null;
+function marcarCarga38(id,activa,texto){const b=ui(id);b.disabled=activa;b.classList.toggle('actualizando38',activa);b.setAttribute('aria-busy',String(activa));b.textContent=activa?'Actualizando…':texto;}
+function horaConsulta38(fecha){return new Date(fecha).toLocaleString('es-CL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});}
+function datosFichaCatalogo38(id){const g=catalogo.find(g=>g.referencia===id);return g&&Number.isInteger(g.disponibilidad)?{...g,fotografia:''}:null;}
+function estadoFicha38(texto){estado(texto);ui('estado-ficha38').textContent=texto;}
+function recordarFicha38(id,g,fecha=Date.now()){fichasGuardadas38.set(id,{g,fecha});const i=catalogo.findIndex(j=>j.referencia===g.referencia);if(i>=0)catalogo[i]={referencia:g.referencia,nombre:g.nombre,categoria:g.categoria,versionFoto:g.versionFoto,descripcion:g.descripcion,cantidadTotal:g.cantidadTotal,disponibilidad:g.disponibilidad,prestados:g.prestados};}
+async function consultar(id,forzar=false){
+  clearTimeout(filtroPendiente);const turno=++generacion,mantener=idActual===id&&!ui('ficha').hidden;
+  if(!mantener)limpiarVista();idActual=id;
+  if(!codigoValido(id)){estadoFicha38('Revisa el código de la etiqueta.');return;}
+  mostrarReintento(false);
+  const memoria=fichasGuardadas38.get(id),delCatalogo=datosFichaCatalogo38(id),guardada=memoria||(delCatalogo?{g:delCatalogo,fecha:fechaCatalogo38}:null);
+  if(!forzar&&guardada&&(memoria||catalogoVigente38)){
+    mostrarFicha(guardada.g);marcarCarga38('actualizar-ficha',false,'Actualizar disponibilidad');ui('ficha').setAttribute('aria-busy','false');estadoFicha38('Disponibilidad consultada el '+horaConsulta38(guardada.fecha)+'. Pulsa Actualizar disponibilidad para consultar de nuevo.');return;
+  }
+  if(!mantener){if(guardada){mostrarFicha(guardada.g);estadoFicha38('Mostrando la última consulta guardada. Consultando disponibilidad…');}else{estadoFicha38('Consultando disponibilidad…');prepararCatalogo().then(()=>{if(turno===generacion&&ui('ficha').hidden)anticiparFicha(id)});}}
+  marcarCarga38('actualizar-ficha',true,'Actualizar disponibilidad');ui('ficha').setAttribute('aria-busy','true');
+  try{
+    if(!navigator.onLine)throw Error('Sin conexión. La información visible conserva la última consulta; actualiza cuando te conectes.');
+    let g;
+    if(!forzar&&!id.includes('-')){await cargarCatalogo();if(!catalogoVigente38)throw Error('No se pudo consultar la disponibilidad actual. Inténtalo otra vez.');g=datosFichaCatalogo38(id);}
+    else g=await solicitarFicha(id);
+    if(turno!==generacion)return;
+    if(!fichaValida(g))throw Error('Ficha no disponible. Revisa el código o vuelve a intentarlo.');
+    const fecha=Date.now();recordarFicha38(id,g,fecha);mostrarFicha(g);estadoFicha38('Disponibilidad consultada el '+horaConsulta38(fecha)+'. Solo se actualizará cuando pulses Actualizar disponibilidad.');
+  }catch(error){if(turno===generacion){estadoFicha38(error.message);mostrarReintento(true);}}
+  finally{if(turno===generacion){marcarCarga38('actualizar-ficha',false,'Actualizar disponibilidad');ui('ficha').setAttribute('aria-busy','false');}}
+}
+function cargarCatalogo(){
+  if(catalogoEnCurso38)return catalogoEnCurso38;
+  cargandoCatalogo=true;const turno=++cargaCatalogo;marcarCarga38('refrescar-catalogo',true,'Actualizar catálogo');
+  if(!idActual){mostrarReintento(false);estado(catalogoCargado?'Actualizando catálogo y disponibilidad…':'Cargando catálogo…');}
+  catalogoEnCurso38=(async()=>{
+    try{
+      const inicial=prepararCatalogo();if(!navigator.onLine){await inicial;throw Error('Sin conexión. Se muestra el catálogo guardado.');}
+      catalogoSolicitado=true;
+      const [r]=await Promise.all([jsonp({api:'catalogo',v:'38'}),inicial]);if(turno!==cargaCatalogo)return;
+      if(!catalogoValido(r)||r.juegos.some(g=>!Number.isInteger(g.disponibilidad)))throw Error('No se pudo actualizar el catálogo. Vuelve a intentarlo.');
+      fechaCatalogo38=Date.parse(r.consultado)||Date.now();catalogoVigente38=true;
+      aplicarCatalogo(r.juegos);fichasGuardadas38.clear();guardarCatalogo(almacenamiento,claveCatalogo,r.juegos,fechaCatalogo38);
+      if(!idActual)estado('Catálogo y disponibilidad actualizados el '+horaConsulta38(fechaCatalogo38)+'. '+catalogo.length+' juegos.');
+    }catch(error){if(turno===cargaCatalogo&&!idActual){estado(error.message);mostrarReintento(true);}}
+    finally{if(turno===cargaCatalogo){marcarCarga38('refrescar-catalogo',false,'Actualizar catálogo');cargandoCatalogo=false;}catalogoEnCurso38=null;}
+  })();return catalogoEnCurso38;
+}
+
 leerUbicacion();
+
 
